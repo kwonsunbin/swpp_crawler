@@ -1,0 +1,25 @@
+#!python3
+
+iim = lambda: map(int, input().rstrip().split())
+
+def resolve():
+    N = int(input())
+    A = [int(input()) for i in range(N)]
+
+    Inf = 10**9 + 1
+    dp = [Inf] * N
+
+    from bisect import bisect_left
+    n = 0
+
+    for a in A:
+        i = bisect_left(dp, a, 0, n)
+
+        if a < dp[i]:
+            dp[i] = a
+            n = max(n, i+1)
+    print(n)
+
+if __name__ == "__main__":
+    resolve()
+

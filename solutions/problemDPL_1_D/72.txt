@@ -1,0 +1,29 @@
+
+import sys
+sys.setrecursionlimit(10 ** 7)
+read = sys.stdin.buffer.read
+inp = sys.stdin.buffer.readline
+def inpS(): return inp().rstrip().decode()
+readlines = sys.stdin.buffer.readlines
+MOD = 10 ** 9 + 7
+INF = 1 << 60
+
+# ---------------------------------------------------
+# ---------------------------------------------------
+# ---------------------------------------------------
+from bisect import bisect_left
+
+def resolve():
+    N = int(input())
+    A = [int(input()) for _ in range(N)]
+
+    dp = [INF]*(N+1)
+    for i in range(N):
+        ind = bisect_left(dp, A[i])
+        dp[ind] = A[i]
+
+    ans = bisect_left(dp, INF)
+    print(ans)
+
+if __name__ == '__main__':
+    resolve()

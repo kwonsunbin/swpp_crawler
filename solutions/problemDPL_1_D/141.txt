@@ -1,0 +1,17 @@
+from bisect import bisect_left
+import sys
+
+n = int(input())
+A = [int(i.rstrip("\n")) for i in sys.stdin.readlines()]
+
+def LIS():
+    L = A[:1]
+    for i in A[1:]:
+        if L[-1] < i:
+            L.append(i)
+        else:
+            j = bisect_left(L, i)
+            L[j] = i
+    return len(L)
+
+print(LIS())

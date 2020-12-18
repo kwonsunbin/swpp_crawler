@@ -1,0 +1,19 @@
+from bisect import bisect_left
+
+def LIS(arr):
+    n = len(arr)
+    lis = [arr[0]]
+    for a in arr:
+        if a > lis[-1]:
+            lis.append(a)
+        else:
+            lis[bisect_left(lis,a)] = a
+    return len(lis)
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+A = [int(input()) for _ in range(N)]
+
+print(LIS(A))

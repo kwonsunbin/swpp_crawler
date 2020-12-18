@@ -1,0 +1,17 @@
+N=int(input())
+SET=set()
+table=list(map(int,input().split()))
+
+for i in range(len(table)):
+    SET.add(table[i])
+
+ans=0
+
+num_query=int(input())
+num_array=list(map(int,input().split()))
+
+for i in range(len(num_array)):
+    if num_array[i] in SET:
+        ans+=1
+
+print("%d"%ans)

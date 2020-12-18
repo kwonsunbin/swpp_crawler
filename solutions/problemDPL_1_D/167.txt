@@ -1,0 +1,17 @@
+def LIS(seq: list) -> int:
+    from bisect import bisect_left
+
+    L = [seq[0]]
+    for i in range(len(seq)):
+        if seq[i] > L[-1]:
+            L.append(seq[i])
+        else:
+            idx = bisect_left(L, seq[i])
+            L[idx] = seq[i]
+    return len(L)
+
+
+N = int(input())
+A = [int(input()) for _ in range(N)]
+print(LIS(A))
+

@@ -1,0 +1,12 @@
+n=int(input())
+A=['S','H','C','D']
+C=[[0 for i in range(13)]for j in range(4)]
+
+for i in range(n):
+      ch,B=input().split()
+      B=int(B)
+      C[A.index(ch)][B-1]=1
+for i in range(4):
+    for j in range(13):
+        if C[i][j]==0:
+            print(A[i],j+1)

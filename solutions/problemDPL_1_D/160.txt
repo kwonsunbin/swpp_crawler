@@ -1,0 +1,16 @@
+from bisect import *
+
+n = int(input())
+A = []
+for _ in range(n):
+    A.append(int(input()))
+    
+INF = 10**10
+dp = [INF]*(n+1)
+dp[0] = -1
+
+for a in A:
+    idx = bisect(dp,a-1)
+    dp[idx] = min(dp[idx],a)
+    
+print(max([i for i in range(n+1) if dp[i] < INF]))

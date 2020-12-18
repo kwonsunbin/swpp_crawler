@@ -1,0 +1,24 @@
+x=int(input())
+list1=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+list2=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+list3=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+list4=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+for i in range(x):
+    a,b=map(str,input().split())
+    b=int(b)
+    if a=="S":
+        list1.remove(b)
+    if a=="H":
+        list2.remove(b)
+    if a=="C":
+        list3.remove(b)
+    if a=="D":
+        list4.remove(b)
+for j in range(len(list1)):
+    print("S",list1[j])
+for j in range(len(list2)):
+    print("H",list2[j])
+for j in range(len(list3)):
+    print("C",list3[j])
+for j in range(len(list4)):
+    print("D",list4[j])

@@ -1,0 +1,24 @@
+
+n = int(input())
+A = list(map(int,input().split()))
+m = int(input())
+B = list(map(int,input().split()))
+
+def binary_search(target,List):
+  left_index = -1
+  right_index = len(List)
+
+  while abs(left_index - right_index) > 1:
+    middle = (left_index + right_index)//2
+
+    if List[middle] >= target :right_index = middle
+    else :left_index = middle
+
+    if List[middle] == target: return 1
+  
+  return 0
+ans = 0
+for i in B:
+  ans += binary_search(i,A)
+print(ans)
+

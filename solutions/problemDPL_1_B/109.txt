@@ -1,0 +1,15 @@
+N, W = map(int, input().split())
+v = [0]*110
+w = [0]*110
+dp = [[0]*10010 for _ in range(110)]
+for i in range(N):
+    v[i], w[i] = map(int, input().split())
+
+for i in range(N):
+    for j in range(W+1):
+        if j >= w[i]:
+            dp[i+1][j] = max(dp[i][j-w[i]] + v[i], dp[i][j])
+        else:
+            dp[i+1][j] = dp[i][j]
+
+print(dp[N][W])

@@ -1,0 +1,35 @@
+import sys
+import math
+import bisect
+from collections import defaultdict, deque
+from copy import deepcopy
+    
+input = sys.stdin.readline
+def RD(): return input().rstrip()
+def F(): return float(input().rstrip())
+def I(): return int(input().rstrip())
+def MI(): return map(int, input().split())
+def MF(): return map(float,input().split())
+def LI(): return tuple(map(int, input().split()))
+def LF(): return list(map(float,input().split()))
+def Init(H, W, num): return [[num for i in range(W)] for j in range(H)]
+    
+    
+def main():
+    n = I()
+    L = tuple([I() for i in range(n)])
+    #ある長さを作成するための最小の値をDPする。
+    max_num = 0
+    D = [float('inf')]*n
+    for i in range(n):
+        num = L[i]
+        index = bisect.bisect_left(D, num)
+        D[index] = num
+        max_num = max(max_num, index+1)
+    
+    print(max_num)
+
+
+    
+if __name__ == "__main__":
+    main()

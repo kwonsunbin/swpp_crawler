@@ -1,0 +1,19 @@
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+T = list(map(int, input().split()))
+S.sort()
+ans = 0
+for t in T:
+    l = -1
+    r = n
+    while r-l > 1:
+        mid = (r+l)//2
+        if S[mid] <= t:
+            l = mid
+        else:
+            r = mid
+    if l != -1 and S[l] == t:
+        ans += 1
+print(ans)
+

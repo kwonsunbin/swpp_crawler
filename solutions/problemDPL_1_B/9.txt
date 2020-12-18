@@ -1,0 +1,19 @@
+N, totalWt = list(map(int, input().split()))
+itemsVal = [0]
+itemsWt = [0]
+for i in range(0, N):
+    val, weight = list(map(int, input().split()))
+    itemsVal.append(val)
+    itemsWt.append(weight)
+
+mylist = [[0 for _ in range(totalWt+1)] for _ in range(N + 1)]
+
+
+for i in range(1, N + 1):
+    for j in range(1, totalWt+1):
+        if j >= itemsWt[i]:
+            mylist[i][j] = max(mylist[i-1][j], mylist[i-1][j-itemsWt[i]] + itemsVal[i])
+        else:
+            mylist[i][j] = mylist[i-1][j]
+
+print(mylist[len(itemsWt)-1][totalWt])

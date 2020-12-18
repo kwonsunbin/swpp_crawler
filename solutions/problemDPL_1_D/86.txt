@@ -1,0 +1,14 @@
+from bisect import bisect_left
+
+N = int(input())
+A = [int(input()) for i in range(N)]
+LIS = []
+
+for i in range(N):
+    index = bisect_left(LIS, A[i])
+    if index >= len(LIS):
+        LIS.append(A[i])
+    else:
+        LIS[index] = A[i]
+
+print(len(LIS))

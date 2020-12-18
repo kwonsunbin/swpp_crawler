@@ -1,0 +1,15 @@
+if __name__ == "__main__":
+    num_int = int(input())
+    numbers = list(map(lambda x: int(x), input().split()))
+    num_query = int(input())
+
+    for _ in range(num_query):
+        op, begin, end = map(lambda x: int(x), input().split())
+        sub_numbers = numbers[begin: end]
+        if (0 == op):
+            min_num = min(sub_numbers)
+            print(min_num)
+        elif (1 == op):
+            max_num = max(sub_numbers)
+            print(max_num)
+

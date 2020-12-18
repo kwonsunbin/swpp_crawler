@@ -1,0 +1,29 @@
+# Longest Increasing Subsequence
+import bisect
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+
+
+# def dfs(i, j):
+#     if i == n:
+#         return 0
+#     if j < a[i]:
+#         return 1 + dfs(i+1, a[i])
+#     else:
+#         return max(dfs(i+1, j), dfs(i+1, a[i]))
+#
+# print(dfs(i, -1))
+
+
+L = [a[0]]
+for x in a[1:]:
+    if L[-1] < x:
+        L.append(x)
+    else:
+        j = bisect.bisect_left(L, x)
+        L[j] = x
+
+print(len(L))

@@ -1,0 +1,9 @@
+import itertools
+while True:
+    n,x = list(map(int,input().split()))
+    if n==x==0: break
+    count = 0
+    li = range(1,n+1)
+    for element in itertools.combinations(li, 3):
+        count += 1 if sum(element)==x else 0
+    print(count)

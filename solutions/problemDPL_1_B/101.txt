@@ -1,0 +1,18 @@
+nn,ww=map(int,input().split())
+value=[0]*nn
+weight=[0]*nn
+for i in range(nn):
+    value[i],weight[i]=map(int,input().split())    
+    
+dp=[[0]*(ww+1) for i in range(nn+1)]
+for w in range(ww+1):
+    dp[0][w]=0
+    
+for i in range(nn):
+    for w in range(ww+1):
+        if weight[i]<=w:
+            dp[i+1][w]=max(dp[i][w-weight[i]]+value[i],dp[i][w])
+        else:
+            dp[i+1][w]=dp[i][w]
+
+print(dp[nn][ww])

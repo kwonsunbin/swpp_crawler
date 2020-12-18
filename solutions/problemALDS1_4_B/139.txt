@@ -1,0 +1,21 @@
+import sys
+n = int(sys.stdin.readline()[:-1])
+S = [int(x) for x in (sys.stdin.readline()[:-1].split())]
+q = int(sys.stdin.readline()[:-1])
+T = [int(x) for x in (sys.stdin.readline()[:-1].split())]
+
+count = 0
+for t in T:
+    l = 0
+    h = n - 1
+    while l <= h:
+        half = (h + l) // 2
+        if S[half] == t:
+            count += 1
+            break
+        elif S[half] < t:
+            l = half + 1
+        else:
+            h = half - 1
+
+print(count)

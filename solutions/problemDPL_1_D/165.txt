@@ -1,0 +1,28 @@
+def main():
+    N = int(input())
+    A = [int(input()) for _ in range(N)]
+    lis = [A[0]]
+    for a in A[1:]:
+        if a > lis[-1]:
+            lis.append(a)
+        else:
+            idx = binary_search(lis, a)
+            lis[idx] = a
+    print(len(lis))
+
+
+def binary_search(A, x):
+    ok = len(A)
+    ng = -1
+    while abs(ok - ng) > 1:
+        mid = (ok + ng) // 2
+        if A[mid] >= x:
+            ok = mid
+        else:
+            ng = mid
+    return ok
+
+
+if __name__ == '__main__':
+    main()
+

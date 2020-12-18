@@ -1,0 +1,19 @@
+cards = [s + str(i+1) for i in range(13) for s in ['S ','H ','C ','D ']]
+n = int(input())
+for i in range(n): cards.remove(input())
+for i in cards[:]:
+	if i.startswith('S'): 
+		print(i)
+		cards.remove(i)
+for i in cards[:]:
+	if i.startswith('H'): 
+		print(i)
+		cards.remove(i)
+for i in cards[:]:
+	if i.startswith('C'): 
+		print(i)
+		cards.remove(i)
+for i in cards[:]:
+	if i.startswith('D'): 
+		print(i)
+		cards.remove(i)

@@ -1,0 +1,27 @@
+def binarysearch(lis,i,j,n):
+    if lis[-1]<n:
+        return len(lis)
+    elif j-i == 1:
+        return j
+    else:
+        m = (i+j)//2
+        if lis[m] < n:
+            return binarysearch(lis,m,j,n)
+        elif lis[m]>n:
+            return binarysearch(lis,i,m,n)
+        elif lis[m] == n:
+            return m
+
+
+n = int(input())
+lis = [-1]
+for _ in range(n):
+    x = int(input())
+    y = len(lis)-1
+    j = binarysearch(lis,0,y,x)
+    if j == len(lis):
+        lis.append(x)
+    else:
+        if lis[j] > x:
+            lis[j] = x
+print(len(lis)-1)

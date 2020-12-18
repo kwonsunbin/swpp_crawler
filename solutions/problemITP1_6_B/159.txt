@@ -1,0 +1,30 @@
+import sys
+n = int(input())
+card =[]
+for i in range(n):
+    card.append(str(input()))
+#print(card)
+	
+for i in range(1,14):
+	if 'S '+str(i) in card:
+		print('', end='')
+	else:
+		print('S '+str(i))
+		
+for i in range(1,14):		
+	if 'H '+str(i) in card:
+		print('', end='')
+	else:
+		print('H '+str(i))
+		
+for i in range(1,14):		
+	if 'C '+str(i) in card:
+		print('', end='')
+	else:
+		print('C '+str(i))
+		
+for i in range(1,14):		
+	if 'D '+str(i) in card:
+		print('', end='')
+	else:
+		print('D '+str(i))

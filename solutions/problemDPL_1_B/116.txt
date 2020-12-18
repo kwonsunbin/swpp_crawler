@@ -1,0 +1,17 @@
+def  main():
+    N,W = map(int,input().split(" "))
+    V = []
+    dp = [0 for _ in range(W+1)]
+    for _ in range(N):
+        V.append(tuple(map(int,input().split(" "))))
+    V =  tuple(V)
+    for i in range(N):
+        tmp = list(dp)
+        v,w = V[i]
+        for j in range(W+1):
+            if 0 <= j+w <= W:
+                tmp[j+w] = max(dp[j+w],dp[j]+v)
+        dp = list(tmp)
+    print(dp[-1])
+if __name__ == "__main__":
+    main()

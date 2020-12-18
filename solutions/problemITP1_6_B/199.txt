@@ -1,0 +1,13 @@
+import sys
+
+lines = [line for line in sys.stdin]
+gs =['S','H','C','D']
+js = list(map(str,range(1,14)))
+all=[g + " " +j for g in gs for j in js]
+
+for g in lines[1:]:
+    g=g.strip()
+    all.remove(g)
+
+for g in all:
+    print(g)

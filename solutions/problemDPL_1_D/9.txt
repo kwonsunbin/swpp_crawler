@@ -1,0 +1,12 @@
+import sys
+sys.setrecursionlimit(100000)
+a=[int(input()) for i in range(int(input()))]
+import bisect
+LIS = [a[0]]
+for i in range(len(a)):
+    if a[i]>LIS[-1]:
+        LIS.append(a[i])
+    else:
+        LIS[bisect.bisect_left(LIS,a[i])] = a[i]
+print(len(LIS))
+

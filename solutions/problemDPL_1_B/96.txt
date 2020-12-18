@@ -1,0 +1,11 @@
+N, W = map(int, input().split())
+mo = [list(map(int, input().split())) for _ in range(N)]
+dp = [[0] * (W+1) for _ in range(N+1)]
+
+for i, m in enumerate(mo):
+    for j in range(W+1):
+        if j < m[1]:
+            dp[i+1][j] = dp[i][j]
+        else:
+            dp[i+1][j] = max(dp[i][j], dp[i][j-m[1]] + m[0])
+print(dp[N][W])

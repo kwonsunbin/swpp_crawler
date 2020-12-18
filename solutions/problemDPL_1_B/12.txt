@@ -1,0 +1,13 @@
+N,W=map(int,input().split())
+nap=[]
+for i in range(N):
+    nap.append(list(map(int,input().split())))
+search_m=[[0 for i in range(N+1)] for j in range(W+1)]
+for i in range(N)[::-1]:
+    for j in range(W+1):
+        search_m[j][i]=search_m[j][i+1]
+        if j+nap[i][1]>W:
+            continue
+        else:
+            search_m[j][i]=max(search_m[j][i],search_m[j+nap[i][1]][i+1]+nap[i][0])
+print(max(search_m[0]))

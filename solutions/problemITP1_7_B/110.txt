@@ -1,0 +1,26 @@
+while True:
+    n,x=map(int,input().split())
+    
+    if n==0 and x==0:
+        break
+    
+    L=list(range(1,n+1))
+  
+    
+    a=0
+    for i in range(n-2):
+        b=L[i]
+        for j in range(1,n-1):
+            c=L[j]
+            for k in range(2,n):
+                d=L[k]
+                
+                if b+c+d==x:
+                    
+                    if b>=c or c>=d :
+                        pass
+                    else:
+                        a+=1
+                    
+    
+    print(a)

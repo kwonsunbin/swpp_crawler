@@ -1,0 +1,22 @@
+
+while True:
+
+    n,x = map(int,input().split())
+
+    if n == 0 and x == 0 :
+        break
+
+    ans = 0
+
+    for i in range(n):
+
+        for j in range(i):
+
+            for k in range(j):
+
+                if i + j + k + 3 == x:
+
+                    ans += 1
+
+    print (ans)
+

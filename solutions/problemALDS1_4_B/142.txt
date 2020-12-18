@@ -1,0 +1,14 @@
+import bisect
+N = int(input())
+A = list(map(int, input().split()))
+Q = int(input())
+B = list(map(int, input().split()))
+
+
+ans = 0
+for b in B:
+    r = bisect.bisect_right(A, b)
+    l = bisect.bisect_left(A, b)
+    if r != l:
+        ans += 1
+print(ans)

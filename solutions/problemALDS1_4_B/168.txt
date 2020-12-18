@@ -1,0 +1,25 @@
+import math
+
+n = int(input())
+s_list = list(map(int, input().split()))
+q = int(input())
+t_list = list(map(int, input().split()))
+
+count = 0
+for t in t_list:
+    left = 0
+    right = len(s_list) - 1
+    while left <= right:
+        mid = math.floor((left + right) / 2)
+        if s_list[mid] == t:
+            count = count + 1
+            break
+        elif s_list[mid] > t:
+            right = mid - 1
+            continue
+        elif s_list[mid] < t:
+            left = mid + 1
+            continue
+
+print(count)
+

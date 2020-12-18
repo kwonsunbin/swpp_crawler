@@ -1,0 +1,10 @@
+n = int(input())
+cards = set()
+for _ in range(n):
+	cards |= {input()}
+
+for s in ["S","H","C","D"]:
+	for n in range(1,14):
+		needle = s + " " + str(n)
+		if not needle in cards:
+			print(needle)

@@ -1,0 +1,17 @@
+N = int(input())
+A = [int(input()) for _ in range(N)]
+
+inf = float("inf")
+dp = [inf] * (N+1)
+# dp[0] = 0
+
+from bisect import bisect_left as bl
+
+for a in A: # i番目の要素を見る　
+    L_idx = bl(dp, a)
+    dp[L_idx] = a
+
+# print(dp)
+print( bl(dp, inf)   )
+
+

@@ -1,0 +1,20 @@
+n=int(input())
+S=list(map(int,input().split()))
+q=int(input())
+T=list(map(int,input().split()))
+ans=0
+for t in T:
+    num_l=0
+    num_r=n-1
+    if not S[0]<= t <=S[-1]:
+        continue
+    while (num_r-num_l)>1:
+        num_m=(num_r-num_l)//2+num_l
+        if t>S[num_m]:
+            num_l=num_m
+        elif t<S[num_m]:
+            num_r=num_m
+        if t in [S[num_l],S[num_m],S[num_r]]:
+            ans+=1
+            break
+print(ans)

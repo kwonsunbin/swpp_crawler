@@ -1,0 +1,11 @@
+cards = [[False for i in range(13)]for j in range(4)]
+ptn = ['S','H','C','D']
+n = int(input())
+for i in range(n):
+    a, b = map(str,input().split())
+    b = int(b)
+    cards[ptn.index(a)][b-1] = True
+for j in range(4):
+    for k in range(13):
+        if cards[j][k] == False:
+            print(ptn[j],k+1)

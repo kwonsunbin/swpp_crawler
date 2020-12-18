@@ -1,0 +1,19 @@
+from itertools import combinations
+nx = []
+while 1:
+    i = list(map(int, input().split()))
+    if i[0]==0:
+        break
+    nx.append(i)
+
+for j in nx:
+    ans = 0
+    n,x = j[0], j[1]
+    for i in combinations(range(1,n+1), 2):
+         c = x - sum(i)
+         if c<=0 or c>n: continue
+         if c==i[0] or c==i[1]: continue
+         ans += 1
+    print(int(ans/3))
+
+

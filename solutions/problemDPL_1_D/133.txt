@@ -1,0 +1,25 @@
+import collections # deque, Counter
+import itertools   # accumulate, compress, permutations(nPr), combinations(nCr)
+import bisect      # bisect_left(insert位置), bisect_right(slice用)
+import math        # factorical（階乗) # hypot(距離)
+import heapq
+# from fractions import gcd # >=Python3.5 # lcm（最小公倍数） = (a*b)//gcd(a,b)
+# from fractions import Fraction
+# from math import gcd # <Python3.5
+# --------------------------------------------------------------
+
+def main():
+
+    n = int(input())
+    v = [int(input()) for _ in range(n)]
+
+    inf   = float('inf')
+    dp    = [inf]*(n+1) # 長さiの最長部分列 の最後の値 の最小値
+
+    for i in range(n):
+        dp[bisect.bisect_left(dp, v[i])] = v[i]
+    
+    print(bisect.bisect_left(dp, inf))
+
+if __name__ == '__main__':
+    main()

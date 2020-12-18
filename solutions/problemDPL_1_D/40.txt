@@ -1,0 +1,26 @@
+def nib(x):
+    left = 0
+    right = len(L[:length])
+    mid = (left + right) // 2
+    while 1:
+        if mid == 0 or (L[mid] >= x and x > L[mid-1]):
+            break
+        if L[mid] > x:
+            right = mid
+        elif x > L[mid]:
+            left = mid
+        mid = (left + right) // 2
+    return mid
+
+N = int(input())
+A = [int(input()) for _ in range(N)]
+L = [0 for _ in range(N)]
+L[0] = A[0]
+length = 1
+for i in range(1, N):
+    if L[length-1] < A[i]:
+        L[length] = A[i]
+        length += 1
+    else:
+        L[nib(A[i])] = A[i]
+print(length)

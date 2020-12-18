@@ -1,0 +1,22 @@
+N,W=[int(i) for i in input().split(" ")]
+v=[]
+w=[]
+for i in range(N):
+	vw=input().split(" ")
+	v.append(int(vw[0]))
+	w.append(int(vw[1]))
+
+
+
+array=[[0 for i in range(W+1)] for j in range(N+1)]
+
+for i in range(N):
+	array[i+1]=array[i].copy()
+	for j in range(W):
+		try:
+			array[i+1][w[i]+j]=max(array[i+1][w[i]+j],array[i][j]+v[i],array[i][w[i]+j])
+		except:
+			pass
+
+
+print (array[-1][-1])

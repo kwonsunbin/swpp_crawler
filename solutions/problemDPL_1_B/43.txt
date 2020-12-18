@@ -1,0 +1,7 @@
+N, W = map(int, input().split())
+goods = [list(map(int, input().split())) for i in range(N)]
+dp = [0 for i in range(W+1)]
+for i in range(N):
+    for j in range(W, goods[i][1]-1, -1):
+        dp[j] = max(dp[j-goods[i][1]] + goods[i][0], dp[j])
+print(dp[W])

@@ -1,0 +1,48 @@
+def query(tree,begin,end,target,left,right,infinity,func):
+  if right <= begin or end <= left:
+    return infinity
+  if begin <= left and right <= end:
+    return tree[target]
+  next_position = (left + right) // 2
+  left_index = 2 * target + 1
+  right_index = left_index + 1
+  left_side_value = query(tree, begin, end, left_index, left, next_position, infinity, func)
+  right_side_value = query(tree, begin, end, right_index, next_position, right, infinity, func)
+  return func(left_side_value,right_side_value)
+
+over_value = 2000000000
+ary_size = int(input())
+data_ary = list(map(int,input().split()))
+
+leaf_size = 1
+while leaf_size < ary_size:
+  leaf_size = leaf_size * 2
+
+tree_size = leaf_size * 2 - 1
+
+min_tree = [over_value] * tree_size
+max_tree= [-over_value] * tree_size
+for i in range(ary_size):
+  index = leaf_size - 1 + i
+  min_tree[index] = data_ary[i]
+  max_tree[index] = data_ary[i]
+
+for i in range(leaf_size-2,-1,-1):
+  left_index = 2 * i + 1
+  right_index = left_index + 1
+  min_tree[i] = min(min_tree[left_index], min_tree[right_index])
+  max_tree[i] = max(max_tree[left_index], max_tree[right_index])
+
+query_size = int(input())
+for i in range(query_size):
+  input_data = list(map(int,input().split()))
+  command = input_data[0]
+  begin = input_data[1]
+  end = input_data[2]
+  if command == 0:
+    min_value = query(min_tree,begin,end,0,0,leaf_size,over_value,min)
+    print(min_value)
+  elif command == 1:
+    max_value = query(max_tree,begin,end,0,0,leaf_size,-over_value,max)
+    print(max_value)
+

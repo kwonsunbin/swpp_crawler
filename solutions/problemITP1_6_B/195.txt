@@ -1,0 +1,17 @@
+maisu = int(input())
+arucard = []
+suto = ["S","H","C","D"]
+kazu = ["1","2","3","4","5","6","7","8","9","10","11","12","13"]
+trump = []
+for a in suto:
+    for b in kazu:
+        card = (a+" "+b)
+        trump.append(card)
+#print(trump)
+for n in range(maisu):
+    nakusi = input()
+    arucard.append(nakusi)
+for x in arucard:
+    trump.remove(x)
+for y in trump:
+    print(y)

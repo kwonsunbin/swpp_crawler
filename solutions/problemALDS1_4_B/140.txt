@@ -1,0 +1,10 @@
+n=int(input())
+s=set(map(int,input().split()))
+q=int(input())
+t=set(map(int,input().split()))
+
+icnt=0
+for ti in t:
+    if ti in s:
+        icnt+=1
+print(icnt)

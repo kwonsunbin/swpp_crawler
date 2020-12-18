@@ -1,0 +1,20 @@
+total_elements = int(input())
+
+sequence = [int(x) for x in input().split()]
+
+total_queries = int(input())
+
+query_results = []
+
+for _ in range(total_queries):
+  query_type, start, end = [int(x) for x in input().split()]
+
+  if query_type == 0:
+    query_results.append(min(sequence[start:end]))
+  
+  if query_type == 1:
+    query_results.append(max(sequence[start:end]))
+
+for result in query_results:
+  print(result)
+

@@ -1,0 +1,13 @@
+import bisect
+N = int(input())
+C = [int(input())for _ in range(N)]
+INF = float('inf')
+dp = [INF]*N
+max_ind = 0
+for c in C:
+    index = bisect.bisect_left(dp,c)
+    dp[index] = c
+    max_ind = max(max_ind,index)
+
+print(max_ind+1)
+

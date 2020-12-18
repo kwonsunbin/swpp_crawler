@@ -1,0 +1,11 @@
+n = int(input())
+l = list(map(int, input().split()))
+q = int(input())
+for i in range(q):
+    a = input().split()
+    b = int(a[1])
+    c = int(a[2])
+    if a[0] == "0":
+        print(min(l[b:c]))
+    else:
+        print(max(l[b:c]))

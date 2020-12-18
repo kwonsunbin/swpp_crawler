@@ -1,0 +1,25 @@
+import bisect
+import sys
+
+input=sys.stdin.readline
+N=int(input())
+L=[]
+for i in range(N):
+    n=int(input())
+    L.append(n)
+    
+A=[10**10 for i in range(N)]
+
+for n in L:
+    a=bisect.bisect_left(A,n)
+    A[a]=n
+    #print(A)
+    
+ans=0
+for i in range(N):
+    if A[i]<10**10:
+        ans+=1
+    else:
+        break
+print(ans)
+    

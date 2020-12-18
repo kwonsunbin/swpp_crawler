@@ -1,0 +1,33 @@
+S = []
+H = []
+C = []
+D = []
+
+value = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+
+
+n = int(input())
+
+for i in range(n):
+  M,N = map(str,input().split())
+  if M == "S":
+    S.append(int(N))
+  if M == "H":
+    H.append(int(N))
+  if M == "C":
+    C.append(int(N))
+  if M == "D":
+    D.append(int(N))
+
+for i in range(len(value)):
+  if (value[i] in S) == False:
+    print("S",value[i])
+for i in range(len(value)):
+  if (value[i] in H) == False:
+    print("H",value[i])
+for i in range(len(value)):
+  if (value[i] in C) == False:
+    print("C",value[i])
+for i in range(len(value)):
+  if (value[i] in D) == False:
+    print("D",value[i])

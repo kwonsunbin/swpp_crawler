@@ -1,0 +1,10 @@
+n = int(input())
+arr = [*map(int, input().split())]
+q = int(input())
+while q:
+    q -= 1
+    op, l, r = map(int, input().split())
+    if op == 0:
+        print(min(arr[l:r]))
+    else:
+        print(max(arr[l:r]))

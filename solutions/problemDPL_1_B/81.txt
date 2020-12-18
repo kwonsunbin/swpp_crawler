@@ -1,0 +1,16 @@
+N, W = map( int, input().split())
+VS, WS = [], []
+for _ in range(N):
+    a, b = map( int, input().split())
+    VS.append(a)
+    WS.append(b)
+dp = [ [ 0 for _ in range(10**5+1)] for _ in range(N+1) ]
+for i in range(N):
+    w = WS[i]
+    v = VS[i]
+    for j in range(W+1):
+        if w <= j:
+            dp[i+1][j] = max( dp[i][j-w] + v, dp[i][j])
+        else:
+            dp[i+1][j] = dp[i][j]
+print(dp[N][W])

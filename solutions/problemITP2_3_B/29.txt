@@ -1,0 +1,11 @@
+import sys
+
+n = int(input())
+a = list(map(int,input().split()))
+q = int(input())
+for query in (line.split() for line in sys.stdin):
+    query = list(map(int, query))
+    if query[0] == 0:
+        print(min(a[query[1]:query[2]]))
+    else:
+        print(max(a[query[1]:query[2]]))

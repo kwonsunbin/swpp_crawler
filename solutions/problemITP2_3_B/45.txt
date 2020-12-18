@@ -1,0 +1,9 @@
+n = int(input())
+box = list(map(int, input().split()))
+q = int(input())
+for _ in range(q):
+    a, b , c = map(int, input().split())
+    if a==0:
+        print(min(box[b:c]))
+    else:
+        print(max(box[b:c]))

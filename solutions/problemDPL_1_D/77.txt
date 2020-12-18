@@ -1,0 +1,20 @@
+import bisect
+import sys
+
+input=sys.stdin.readline
+
+n=int(input())
+a=[int(input()) for _ in range(n)]
+
+#A=[float('inf')*n ]
+
+A=[float('inf')]
+
+for i in range(n):
+    if a[i]>A[-1]:
+        A.append(a[i])
+    else:
+        idx=bisect.bisect_left(A,a[i])
+        A[idx]=a[i]
+
+print(len(A))

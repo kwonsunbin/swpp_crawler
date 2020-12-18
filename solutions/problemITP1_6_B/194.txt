@@ -1,0 +1,25 @@
+n = int(input())
+cards = [[0 for i in range(14)] for j in range(4)]
+for i in range(n):
+    suit, rank = list(map(str, input().split()))
+    if suit == 'S':
+        cards[0][int(rank)] = 1
+    elif suit == 'H':
+        cards[1][int(rank)] = 1
+    elif suit == 'C':
+        cards[2][int(rank)] = 1
+    else:
+        cards[3][int(rank)] = 1
+
+for i in range(4):
+    for j in range(1,14):
+        if cards[i][j] == 0:
+            if i == 0:
+                print("S",end = " ")
+            elif i == 1:
+                print("H",end = " ")
+            elif i == 2:
+                print("C",end = " ")
+            else:
+                print("D",end = " ")
+            print(j)

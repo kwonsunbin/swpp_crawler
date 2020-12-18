@@ -1,0 +1,13 @@
+import bisect
+
+N=int(input())
+NL=[0]+list(map(int,input().split()))+[10**9]
+NL.sort()
+M=int(input())
+ML=list(map(int,input().split()))
+
+ans=0
+for i in ML:
+    if NL[bisect.bisect_left(NL,i)]==i:
+        ans+=1
+print(ans)

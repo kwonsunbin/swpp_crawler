@@ -1,0 +1,20 @@
+while True:
+    n,x=map(int,input().split())
+    if n==0 and x==0:
+        break
+    
+    a=list(range(1,n+1))
+    m=0
+    for i in range(n):
+        f=a[i]
+        for j in range(n-1):
+            if a[j]!=f and a[j]<f:
+                g=a[j]
+            else: break
+            for k in range(n-2):
+                if a[k]==f or a[k]==g:
+                    break
+                if a[k]==x-f-g and a[k]!=f and a[k]!=g:
+                    m+=1
+                
+    print(m)

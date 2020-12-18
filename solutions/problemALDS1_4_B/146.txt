@@ -1,0 +1,21 @@
+n=int(input())
+l1=sorted(list(map(int,input().split())))
+m=int(input())
+l2=sorted(list(map(int,input().split())))
+def nibutan(a,k):
+    l=0
+    r=len(a)
+    while r>l:
+        m=(r+l)//2
+        if a[m]==k:
+            return m
+        elif k<a[m]:
+            r=m
+        else:
+            l=m+1
+    return -1
+c=0
+for i in l2:
+    if nibutan(l1,i)!=-1:
+        c+=1
+print(c)

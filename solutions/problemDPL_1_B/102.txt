@@ -1,0 +1,21 @@
+N, W = list(map(int, input().split()))
+items = [[0, 0]]
+for _ in range(N):
+    v, w = list(map(int, input().split()))
+    items.append([v, w])
+'''
+DP = [[0 for _ in range(W + 1)] for _ in range(N + 1)]
+for i in range(1, N + 1):
+    for j in range(W + 1):
+        if items[i][1] > j:
+            DP[i][j] = DP[i - 1][j]
+        else:
+            DP[i][j] = max(DP[i - 1][j], DP[i - 1][j - items[i][1]] + items[i][0])
+print(DP[N][W])
+'''
+DP2 = [0 for _ in range(W + 1)]
+for i in range(1, N + 1):
+    for j in range(W, items[i][1] - 1, -1):
+            DP2[j] = max(DP2[j], DP2[j - items[i][1]] + items[i][0])
+print(DP2[W])
+

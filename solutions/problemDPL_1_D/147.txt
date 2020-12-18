@@ -1,0 +1,14 @@
+n = int(input())
+A = [int(input()) for _ in range(n)]
+import bisect
+dp = [float('inf')]*n
+for a in A:
+    k = bisect.bisect_left(dp,a)
+    dp[k] = a
+ans = 0
+for i in dp:
+    if i != float('inf'):
+        ans += 1
+    else:
+        break
+print(ans)

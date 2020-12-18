@@ -1,0 +1,15 @@
+s = []
+while True:
+    cnt = 0
+    n, x = list(map(int, input().split()))
+    if n == 0 and x == 0:
+        break
+    else:
+        for i in range(1, n + 1):
+            for j in range(1, i):
+                for k in range(1, j):
+                    if i + j + k == x:
+                        cnt += 1
+        s.append(cnt)
+for l in range(len(s)):
+    print(s[l])

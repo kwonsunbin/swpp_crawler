@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline
+from bisect import bisect_left
+INF = 1 << 40
+
+def main():
+    N = int(input())
+    A = [int(input()) for _ in range(N)]
+    dp = [INF] * (N + 1)
+    dp[0] = -1
+    for a in A:
+        idx = bisect_left(dp,a)
+        dp[idx] = a
+    ans = 1
+    for i in range(N,-1,-1):
+        if dp[i] < INF:
+            ans = i
+            break
+    print(ans)
+if __name__ == '__main__':
+    main()
+

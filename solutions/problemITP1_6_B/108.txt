@@ -1,0 +1,37 @@
+#'S', 'H', 'C', 'D'  1~13
+n = int(input())
+Slist = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+Hlist = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+Clist = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+Dlist = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+
+card_list = []
+for i in range(n):
+    s,num = input().split()
+    one_card = [str(s),int(num)]
+    card_list.append(one_card)
+    if(str(s) == 'S'):
+        Slist.remove(int(num))
+        #print(Slist)
+    elif(str(s) == 'H'):
+        Hlist.remove(int(num))
+    elif(str(s) == 'C'):
+        Clist.remove(int(num))
+    elif(str(s) == 'D'):
+        Dlist.remove(int(num))
+while len(Slist) :
+    for s in Slist:
+        print('S {}'.format(s))
+    break
+while len(Hlist) :
+    for s in Hlist:
+        print('H {}'.format(s))
+    break
+while len(Clist) :
+    for s in Clist:
+        print('C {}'.format(s))
+    break
+while len(Dlist) :
+    for s in Dlist:
+        print('D {}'.format(s))
+    break

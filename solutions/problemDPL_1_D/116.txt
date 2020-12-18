@@ -1,0 +1,11 @@
+import sys
+import bisect
+n = int(sys.stdin.readline())
+A = [int(sys.stdin.readline()) for j in range(n)]
+dp = A[:1]
+for a_i in A[1:]:
+    if dp[-1] < a_i:
+        dp.append(a_i)
+    else:
+        dp[bisect.bisect_left(dp, a_i)] = a_i
+print(len(dp))

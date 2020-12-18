@@ -1,0 +1,15 @@
+n,w = map(int,input().split())
+L = []
+for i in range(n):
+  L.append(list(map(int,input().split())))
+dp = []
+for i in range(n+1):
+    T = [0]*(w+1)
+    dp.append(T)
+for i in range(n-1,-1,-1):
+    for j in range(w+1):
+        if j < L[i][1]:
+            dp[i][j] = dp[i+1][j]
+        else:
+            dp[i][j] = max(dp[i+1][j],dp[i+1][j-L[i][1]]+L[i][0])
+print(dp[0][w]) 

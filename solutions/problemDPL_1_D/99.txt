@@ -1,0 +1,16 @@
+import bisect
+
+N = int(input())
+numbers = []
+for i in range(N):
+    numbers.append(int(input()))
+
+lis = [numbers[0]]
+for last in numbers[1:]:
+    if lis[-1] < last:
+        lis.append(last)
+    else:
+        pos = bisect.bisect_left(lis, last)
+        lis[pos] = last
+
+print(len(lis))

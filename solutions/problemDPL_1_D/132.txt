@@ -1,0 +1,39 @@
+# DPL_1_D - Longest Increasing Subsequence
+from typing import Sequence
+
+
+def longest_subsequence(A: Sequence[int], is_equal: bool, is_increasing: bool) -> int:
+    """
+    Compute the length of LIS or LDS.
+
+    Args:
+        A (Sequence[int]): a list or tuple to compute.
+        is_equal (bool): permit adjacent numbers in subsequence to equal.
+        is_increasing (bool): compute an increasing subsequence or decreasing one.
+    Returns: (int) the length of a subsequence.
+    """
+    from bisect import bisect_left, bisect_right
+
+    bs = bisect_right if is_equal else bisect_left
+    compare = (lambda x, y: x >= y) if is_equal else (lambda x, y: x > y)
+    if not is_increasing:
+        A = A[::-1]
+
+    dp = [A[0]]  # dp := length of LIS (dp table itself is not LIS)
+    for i in A[1:]:
+        if compare(i, dp[-1]):
+            dp.append(i)
+        else:
+            dp[bs(dp, i)] = i
+    return len(dp)
+
+
+def main():
+    N, *A = map(int, open(0))
+    ans = longest_subsequence(A, is_equal=False, is_increasing=True)
+    print(ans)
+
+
+if __name__ == "__main__":
+    main()
+

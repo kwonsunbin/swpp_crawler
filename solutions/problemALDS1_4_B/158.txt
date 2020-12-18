@@ -1,0 +1,30 @@
+def main():
+	num = 0
+
+	n = int(input())
+	s_list = list(map(int, input().split()))
+
+	_ = input()
+	t_list = list(map(int, input().split()))
+	for t in t_list:
+		if b_search(s_list, t) != -1:
+			num += 1
+	
+	print(num)
+
+def b_search(li, key):
+	left = 0
+	right = len(li)
+	while left < right:
+		mid = int((left+right) / 2)
+		if li[mid] == key:
+			return mid
+		elif key < li[mid]:
+			right = mid
+		else:
+			left = mid + 1
+
+	return -1
+
+if __name__ == '__main__':
+	main()

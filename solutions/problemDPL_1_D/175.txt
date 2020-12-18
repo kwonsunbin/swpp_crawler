@@ -1,0 +1,23 @@
+
+from bisect import bisect_left
+n = int(input())
+A = []
+for i in range(n):
+    a = int(input())
+    A.append(a)
+
+INF = 10**10
+dp = [INF for i in range(n+1)]
+dp[0] = -1
+
+for a in A:
+    index = bisect_left(dp, a)
+    dp[index] = min(a, dp[index])
+
+ans = 0
+for i in range(n+1):
+    if dp[i] < INF:
+        ans = max(ans, i)
+
+print(ans)
+

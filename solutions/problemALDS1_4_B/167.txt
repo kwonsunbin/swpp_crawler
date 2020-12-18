@@ -1,0 +1,33 @@
+import sys
+import itertools
+# import numpy as np
+import time
+import math
+ 
+sys.setrecursionlimit(10 ** 7)
+ 
+from collections import defaultdict
+ 
+read = sys.stdin.buffer.read
+readline = sys.stdin.buffer.readline
+readlines = sys.stdin.buffer.readlines
+
+n = int(input())
+S = list(sorted(map(int, input().split())))
+q = int(input())
+T = list(map(int, input().split()))
+
+ans = 0
+for t in T:
+    left = -1
+    right = n
+    while (right - left > 1):
+        mid = left + (right - left) // 2
+        if S[mid] >= t:
+            right = mid
+        else:
+            left = mid
+    if S[right] == t:
+        ans += 1
+print(ans)
+

@@ -1,0 +1,17 @@
+while True:
+    S=0
+    a,b=map(int,input().split())
+    if a==0 and b==0:
+        break
+    for i in range(a):
+        X=a-i
+        for j in range(X-1):
+            Y=(X-1)-j
+            for k in range(X-2):
+                Z=(X-2)-k-j
+                if X>0 and Y>0 and Z>0:
+                    A=X+Y+Z
+                    if A==b:
+                        S=S+1
+                    
+    print(S)

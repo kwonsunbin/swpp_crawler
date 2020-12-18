@@ -1,0 +1,10 @@
+N = int(input())
+a = []
+typ = ["S ", "H ", "C ", "D "]
+for i in range(N):
+    a.append(input())
+
+for i in range(4):
+    for j in range(1, 14):
+        if typ[i] + str(j) not in a:
+            print(typ[i] + str(j))

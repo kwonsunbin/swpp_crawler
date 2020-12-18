@@ -1,0 +1,24 @@
+import sys
+from bisect import bisect_left
+read = sys.stdin.read
+readline = sys.stdin.buffer.readline
+sys.setrecursionlimit(10 ** 8)
+INF = float('inf')
+MOD = 10 ** 9 + 7
+
+
+def main():
+    N = int(readline())
+    A = list(int(readline()) for _ in range(N))
+
+    LIS = [INF]*(N+1)
+    for a in A:
+        i = bisect_left(LIS,a)
+        LIS[i] = a
+    print(LIS.index(INF))
+
+
+if __name__ == '__main__':
+    main()
+
+

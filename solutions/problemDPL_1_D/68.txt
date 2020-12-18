@@ -1,0 +1,13 @@
+from bisect import bisect_left
+
+def main():
+    inf=float("inf")
+    n=int(input())
+    dp=[inf]*n
+    for _ in range(n):
+        a=int(input())
+        dp[bisect_left(dp,a)]=a
+
+    print(bisect_left(dp,10**10))
+
+main()

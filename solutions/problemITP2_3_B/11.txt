@@ -1,0 +1,16 @@
+if __name__ == '__main__':
+
+	n = int(input())
+	A = list(map(int,input().split()))
+
+	n2 = int(input())
+
+	for i in range(n2):
+		com,b,e = map(int,input().split())
+
+		if com == 0:
+			print(min(A[b:e]))
+		else:
+			print(max(A[b:e]))
+
+

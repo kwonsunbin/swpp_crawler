@@ -1,0 +1,15 @@
+n = int(input())
+S = list(map(int,input().split()))
+q = int(input())
+T = list(map(int,input().split()))
+
+import bisect
+ans = 0
+
+for i in T:
+    ok = bisect.bisect(S,i) - 1
+    if S[max(ok,0)] == i:
+        ans += 1
+
+print(ans)
+

@@ -1,0 +1,17 @@
+n=int(input())
+suits=["S","H","C","D"]
+cards=[]
+for t in range(n):
+    s,t=input().split()
+    if s=="S":
+        cards.append(int(t))  
+    elif s=="H":
+        cards.append(13+int(t))
+    elif s=="C":
+        cards.append(26+int(t))
+    else:
+        cards.append(39+int(t))
+
+for u in range(1,53):
+    if u not in cards:
+        print(suits[(u-1)//13],(u-1)%13+1)

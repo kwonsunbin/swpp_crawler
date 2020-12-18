@@ -1,0 +1,17 @@
+def minbe(b, e):
+    B = A[b : e]
+    print(min(B))
+
+def maxbe(b, e):
+    B = A[b : e]
+    print(max(B))
+
+n = int(input())
+A = list(map(int, input().split()))
+q = int(input())
+for i in range(q):
+    queryi = list(map(int, input().split()))
+    if queryi[0] == 0:
+        minbe(queryi[1], queryi[2])
+    else:
+        maxbe(queryi[1], queryi[2])

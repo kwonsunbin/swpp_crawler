@@ -1,0 +1,32 @@
+n = int(input())
+
+S = [i for i in range(1, 14)]
+H = [i for i in range(1, 14)]
+C = [i for i in range(1, 14)]
+D = [i for i in range(1, 14)]
+
+for i in range(n) :
+    a,b= map(str, input().split())
+    
+    if a== "S" :
+        S.remove(int(b))
+    elif a == "H" :
+        H.remove(int(b))
+    elif a == "C" :
+        C.remove(int(b))
+    else :
+        D.remove(int(b))
+        
+if len(S) > 0 :
+    for i in range(len(S)) :
+        print("S", S[i])
+if len(H) > 0 :
+    for i in range(len(H)) :
+        print("H", H[i])
+if len(C) > 0 :
+    for i in range(len(C)) :
+        print("C", C[i])
+if len(D) > 0 :
+    for i in range(len(D)) :
+        print("D", D[i])
+

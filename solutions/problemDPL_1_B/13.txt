@@ -1,0 +1,27 @@
+def solve_knapsack(weight, items):
+    dp = [[0]*(weight+1) for _ in range(len(items))]
+    for i, item in enumerate(items[1:]):
+        for w in range(1, weight+1):
+            if item[1] <= w:
+                if item[0] + dp[i][w-item[1]] > dp[i][w]:
+                    dp[i+1][w] = item[0] + dp[i][w-item[1]]
+                else:
+                    dp[i+1][w] = dp[i][w]
+            else:
+                dp[i+1][w] = dp[i][w]
+    return dp[-1][-1]
+
+
+
+if __name__ == '__main__':
+    # ??????????????\???
+    # f = open('input.txt')
+    num_of_sack, total_capacity = [int(x) for x in input().strip().split(' ')]
+    items = [[]]
+    for _ in range(num_of_sack):
+        items.append([int(x) for x in input().strip().split(' ')])
+    # f.close()
+
+    # ????????¨???????????¨???
+    result = solve_knapsack(total_capacity, items)
+    print(result)

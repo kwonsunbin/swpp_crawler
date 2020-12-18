@@ -1,0 +1,11 @@
+n = int(input())
+s = sorted(list(map(int,input().split())))
+q = int(input())
+t = list(map(int,input().split()))
+c = 0
+import bisect
+for i in t:
+    ind = bisect.bisect_left(s,i)
+    if ind<n and s[ind]==i:
+        c += 1
+print(c) 

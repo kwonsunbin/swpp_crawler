@@ -1,0 +1,14 @@
+n, W = tuple(map(int, input().split()))
+vw = [tuple(map(int, input().split())) for _ in range(n)]
+
+dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
+
+for i in range(n):
+    for w in range(W + 1):
+        if w >= vw[i][1]:
+            dp[i + 1][w] = max(dp[i][w - vw[i][1]] + vw[i][0], dp[i][w])
+        else:
+            dp[i + 1][w] = dp[i][w]
+
+print(max([max(e) for e in dp]))
+

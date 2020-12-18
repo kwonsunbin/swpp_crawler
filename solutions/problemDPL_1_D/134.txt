@@ -1,0 +1,15 @@
+from math import inf
+import bisect
+
+n = int(input())
+A = [int(input()) for _ in range(n)]
+dp = [inf] * n
+for a in A:
+    j = bisect.bisect_left(dp, a)
+    dp[j] = a
+ans = 0
+for i in range(n):
+    if dp[i] != inf:
+        ans = i
+print(ans + 1)
+

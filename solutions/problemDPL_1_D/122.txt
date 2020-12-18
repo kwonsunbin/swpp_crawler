@@ -1,0 +1,15 @@
+from bisect import bisect_left, bisect_right
+
+N = int(input())
+a = [int(input()) for _ in range(N)]
+
+dp = [float('inf')]*(N + 1)
+dp[0] = -float('inf')
+for i in range(N):
+    j = bisect_right(dp, a[i])
+    if dp[j - 1] < a[i]:
+        dp[j] = a[i]
+
+ans = bisect_left(dp, float('inf')) - 1
+print(ans)
+

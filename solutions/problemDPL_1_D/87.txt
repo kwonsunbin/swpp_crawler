@@ -1,0 +1,11 @@
+import sys 
+import bisect
+read = sys.stdin.buffer.read
+readline = sys.stdin.buffer.readline
+readlines = sys.stdin.buffer.readlines
+n,*A = map(int,read().split())
+LIS=[float('inf')]*(n+1)
+for a in A:
+  index = bisect.bisect_left(LIS,a)
+  LIS[index] = a
+print(LIS.index(float('inf')))

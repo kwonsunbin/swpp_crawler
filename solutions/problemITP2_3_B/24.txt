@@ -1,0 +1,15 @@
+n=int(input())
+a=list(map(int,input().split()))
+q=int(input())
+for i in range(q):
+    tmp=list(map(int,input().split()))
+    if tmp[0]==0:
+        ans=float('inf')
+        for j in range(tmp[1],tmp[2]):
+            ans=min(ans,a[j])
+        print(ans)
+    else:
+        ans=float('inf')*(-1)
+        for j in range(tmp[1],tmp[2]):
+            ans=max(ans,a[j])
+        print(ans)

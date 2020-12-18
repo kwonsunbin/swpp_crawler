@@ -1,0 +1,26 @@
+import sys
+import bisect
+
+input = sys.stdin.readline
+
+
+def main():
+    N = int(input())
+    C = [int(input()) for _ in range(N)]
+
+    x = []
+    for c in C:
+        if x:
+            if x[-1] < c:
+                x.append(c)
+            else:
+                y = bisect.bisect_left(x, c)
+                x[y] = c
+        else:
+            x.append(c)
+
+    print(len(x))
+
+if __name__ == '__main__':
+    main()
+

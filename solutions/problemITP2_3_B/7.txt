@@ -1,0 +1,10 @@
+num = input()
+L = list(map(int,input().split()))
+n = int(input())
+
+for _ in range(n):
+    c, b, e = [int(x) for x in input().split()]
+    if c == 0:
+        print(min( L[b:e] ))
+    elif c == 1:
+        print(max( L[b:e] ))

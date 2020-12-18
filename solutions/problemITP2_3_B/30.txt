@@ -1,0 +1,6 @@
+input()
+a = list(map(int, input().split()))
+q = int(input())
+for _ in range(q):
+	x, s, t  = list(map(int, input().split()))
+	print(min(a[s:t]) if x==0 else max(a[s:t]))

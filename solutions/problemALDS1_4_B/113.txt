@@ -1,0 +1,23 @@
+from bisect import bisect_left
+
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+T = list(map(int, input().split()))
+
+ans = 0
+for i in range(q):
+    l = 0
+    r = n
+    while r - l > 1:
+        m = (r + l) // 2
+        if S[m] >= T[i]:
+            r = m
+        else:
+            l = m
+    
+    if l < n and S[l] == T[i]:
+        ans += 1
+    elif r < n and S[r] == T[i]:
+        ans += 1
+print(ans)

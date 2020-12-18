@@ -1,0 +1,23 @@
+if __name__ == '__main__':
+    n = int(input())
+    S = list(map(int, input().split()))
+    q = int(input())
+    T = list(map(int, input().split()))
+
+    count = 0
+
+    for x in T:
+        left = 0
+        right = len(S)
+        while left < right:
+            mid = (left + right) // 2
+            if x == S[mid]:
+                count += 1
+                break
+            elif x < S[mid]:
+                right = mid
+            else:
+                left = mid + 1
+
+    print(count)
+

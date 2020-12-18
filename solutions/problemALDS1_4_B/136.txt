@@ -1,0 +1,29 @@
+n = int(input())
+S = list(map(int,input().split()))
+q = int(input())
+T = list(map(int,input().split()))
+
+
+def search(a, X):
+  l = 0
+  r = len(X) 
+  while l < r:
+    m = (l + r ) // 2
+    if a == X[m]:
+      return m
+    elif a > X[m]:
+      l = m + 1
+    elif a < X[m]:
+      r = m
+  return None
+    
+
+s = 0
+for t in T:
+  if search(t,S) is not None:
+    s += 1
+print(s)
+
+
+
+

@@ -1,0 +1,32 @@
+spade = [True for i in range(13)]
+heart = [True for i in range(13)]
+club = [True for i in range(13)]
+dia = [True for i in range(13)]
+
+n = int(input())
+for i in range(n):
+  suit, num = map(str,input().split())
+  if suit == "S":
+    spade[int(num)-1] = False
+  elif suit =="H":
+    heart[int(num)-1] = False
+  elif suit == "C":
+    club[int(num)-1] = False
+  elif suit == "D":
+    dia[int(num)-1] = False
+
+for i in range(13):
+  if spade[i]:
+    print("S {0}".format(i+1))
+
+for i in range(13):
+  if heart[i]:
+    print("H {0}".format(i+1))
+
+for i in range(13):
+  if club[i]:
+    print("C {0}".format(i+1))
+
+for i in range(13):
+  if dia[i]:
+    print("D {0}".format(i+1))

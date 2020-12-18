@@ -1,0 +1,57 @@
+n = int(input());
+
+S = [];
+H = [];
+C = [];
+D = [];
+for i in range(0,n):
+    a = list(map(str, input().split()));
+    if a[0] == 'S':
+        S.append(a[1]);
+    if a[0] == 'H':
+        H.append(a[1]);
+    if a[0] == 'C':
+        C.append(a[1]);
+    if a[0] == 'D':
+        D.append(a[1]);
+s = [int(s) for s in S];
+h = [int(s) for s in H];
+c = [int(s) for s in C];
+d = [int(s) for s in D];
+
+s.sort();
+h.sort();
+c.sort();
+d.sort();
+s.append(0);
+h.append(0);
+c.append(0);
+d.append(0);
+
+q = 0;
+for j in range(1,14):
+    if s[q] != j:
+        print('S', j);
+    if s[q] == j:
+        q += 1;
+    
+q = 0;
+for k in range(1,14):
+    if h[q] != k:
+        print('H', k);
+    if h[q] == k:
+        q += 1;
+    
+q = 0;
+for m in range(1,14):
+    if c[q] != m:
+        print('C', m);
+    if c[q] == m:
+        q += 1;
+    
+q = 0;
+for o in range(1,14):
+    if d[q] != o:
+        print('D', o);
+    if d[q] == o:
+        q += 1;

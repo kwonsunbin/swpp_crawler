@@ -1,0 +1,17 @@
+card_exists = {
+    "S" : [False for _ in range(13)],
+    "H" : [False for _ in range(13)],
+    "C" : [False for _ in range(13)],
+    "D" : [False for _ in range(13)]
+}
+
+card_count = int(input())
+for i in range(card_count):
+    suit, num = input().split()
+    card_exists[suit][int(num) - 1] = True
+
+for suit in card_exists.keys():
+    for idx, exists in enumerate(card_exists[suit]):
+        if not exists:
+            print(suit, str(idx + 1))
+

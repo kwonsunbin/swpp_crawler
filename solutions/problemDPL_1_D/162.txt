@@ -1,0 +1,21 @@
+import sys
+sys.setrecursionlimit(10**7)
+input = sys.stdin.readlines
+
+import bisect
+
+lines = input()
+n = int(lines[0])
+
+L = [int(lines[1])]
+
+
+for i in range(1, n+1):
+    a = int(lines[i])
+    if a <= L[-1]:
+        b = bisect.bisect_left(L, a)
+        L[b] = a
+    else:
+        L.append(a)
+
+print(len(L))

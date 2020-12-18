@@ -1,0 +1,12 @@
+from bisect import bisect_left
+
+dp = [-1]
+n = int(input())
+a = (int(input()) for _ in range(n))
+for ai in a:
+    if dp[-1] < ai:
+        dp.append(ai)
+    else:
+        dp[bisect_left(dp, ai)] = ai
+        
+print(len(dp) - 1)

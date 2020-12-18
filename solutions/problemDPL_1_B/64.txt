@@ -1,0 +1,25 @@
+# 	The program took 8s to solve 36 cases.
+# 	The program itself did not take long, because
+# I have done it before.
+
+input1 = input().split()
+N = int(input1[0]) # No. of items
+W = int(input1[1]) # Upper limit of weight
+
+item = [[0]*2 for i in range(N)]
+for i in range(N):
+	input2 = input().split()
+	item[i][0] = int(input2[0])
+	item[i][1] = int(input2[1])
+
+v = [[0]*(W+1) for i in range(N)]
+for i in range(N):
+	for c in range(W+1):
+		if (i < 0 or c <= 0):
+			v[i][c] = 0
+		elif (c-item[i][1] < 0):
+			v[i][c] = v[i-1][c]
+		else:
+			v[i][c] = max(item[i][0] + v[i-1][c-item[i][1]], v[i-1][c])
+			
+print(v[N-1][W])

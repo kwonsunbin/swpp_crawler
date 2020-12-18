@@ -1,0 +1,87 @@
+n, w = list(map(int, input().split()))
+
+a = []
+for i in range(n):
+    a.append(list(map(int, input().split())))
+
+vMax = 0
+wMax = 0
+for i in range(n):
+    vMax = max(vMax, a[i][0])
+    wMax = max(wMax, a[i][1])
+
+if n <= 30:
+    val = []
+    if a[0][1] <= w:
+        val.append(a[0])
+
+    for i in range(1, n):
+
+        j = 0
+        valTemp = val[:]
+        while j < len(valTemp):
+            k = 0
+            if valTemp[j][1] + a[i][1] <= w:
+                temp = [valTemp[j][0] + a[i][0], valTemp[j][1] + a[i][1]]
+                while k < len(val):
+                    if val[k][0] == temp[0]:
+                        if temp[1] < val[k][1]:
+                            val[k] = temp
+                        break
+                    elif val[k][0] > temp[0]:
+                        if temp[1] < val[k][1]:
+                            val.insert(k, temp)
+                        break
+
+                    k += 1
+                else:
+                    val.append(temp)
+            j += 1
+
+        if a[i][1] <= w:
+            temp = a[i]
+            j = 0
+            while j < len(val):
+                if val[j][0] == temp[0]:
+                    if temp[1] < val[j][1]:
+                        val[j] = temp
+                    break
+                elif val[j][0] > temp[0]:
+                    if temp[1] < val[j][1]:
+                        val.insert(j, temp)
+                    break
+
+                j += 1
+            else:
+                val.append(temp)
+        
+        j = len(val) - 2
+
+        while j >= 0:
+            if val[j][1] >= val[j + 1][1]:
+                del val[j]
+            j -= 1
+
+    print(val[len(val) - 1][0])
+
+elif wMax <= 1000:
+    w = min(w, wMax * n)
+    dp = [0 for _ in range(w + 1)]
+    for i in range(n):
+        for j in range(w, a[i - 1][1] - 1, -1):
+            dp[j] = max(dp[j], dp[j - a[i - 1][1]] + a[i - 1][0])
+
+    print(max(dp))
+else:
+    m = n + vMax
+    dp = [0 for _ in range(m + 1)]
+    for i in range(n):
+        for j in range(m , a[i - 1][0] - 1, -1):
+            dp[j] = min(dp[j], dp[j - a[i - 1][0]] + a[i - 1][1])
+
+    ans = 0
+    for i in range(n * vMax):
+        if dp[n][i] != 0:
+            ans = max(ans, i)
+ 
+    print(ans)

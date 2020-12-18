@@ -1,0 +1,17 @@
+import bisect
+A=int(input())
+ai=[]
+for i in range(A):
+    ai.append(int(input()))
+min_num=[ai[0],float("inf")]
+len_mn=2
+for i in ai[1:]:
+    b=bisect.bisect_left(min_num,i)
+    if b==0:
+        min_num[0]=i
+    elif b+1==len_mn:
+        min_num.insert(-1,i)
+        len_mn+=1
+    else:
+        min_num[b]=i
+print(len(min_num)-1)

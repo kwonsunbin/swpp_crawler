@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import sys, math,bisect
+input = lambda: sys.stdin.buffer.readline().rstrip().decode('utf-8')
+sys.setrecursionlimit(10**8)
+inf = float('inf')
+ans=count=0
+
+n=int(input())
+A=[int(input()) for i in range(n)]
+dp=[inf]*(n+10)
+dp[0]=A[0]
+length=1
+for i in range(1,n):
+    if dp[length-1]<A[i]:
+        dp[length]=A[i]
+        length+=1
+    else:
+        # print(bisect.bisect_left(dp, A[i]),i)
+        dp[bisect.bisect_left(dp,A[i])]=A[i]
+print(length)
+
+

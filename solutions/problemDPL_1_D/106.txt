@@ -1,0 +1,26 @@
+import sys
+from bisect import bisect_left
+
+sys.setrecursionlimit(10 ** 7)
+input = sys.stdin.readline
+f_inf = float('inf')
+mod = 10 ** 9 + 7
+
+
+def resolve():
+    n = int(input())
+    A = list(int(input()) for _ in range(n))
+
+    LIS = [A[0]]
+    for i in range(n):
+        if A[i] > LIS[-1]:
+            LIS.append(A[i])
+        else:
+            idx = bisect_left(LIS, A[i])
+            LIS[idx] = A[i]
+    print(len(LIS))
+
+
+if __name__ == '__main__':
+    resolve()
+

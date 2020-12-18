@@ -1,0 +1,20 @@
+n = int(input())
+s = [-1]
+s.extend(list(map(int,input().split())))
+q = int(input())
+lfin=list(map(int,input().split()))
+ans = 0
+
+for item in lfin:
+    ok = n
+    ng = 0
+    while(abs(ok-ng)>1):
+        num = (ok+ng)//2
+        if s[num] >= item:
+            ok = num
+        else:
+            ng = num
+    else:
+        if s[ok] == item:
+            ans += 1
+print(ans)

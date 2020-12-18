@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D&lang=jp
+
+"""
+import sys
+from sys import stdin
+input = stdin.readline
+
+
+from bisect import bisect_left
+
+def calc_LIS(A):
+    dp = [float('inf')] * len(A)
+    for a in A:
+        i = bisect_left(dp, a)
+        dp[i] = a
+    return bisect_left(dp, float('inf'))
+
+
+def main(args):
+    n = int(input())
+    A = [int(input()) for _ in range(n)]
+    result = calc_LIS(A)
+    print(result)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1:])

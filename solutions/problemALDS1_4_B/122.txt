@@ -1,0 +1,18 @@
+from bisect import bisect_left as bisect
+
+
+def inpl():
+    return list(map(int, input().split()))
+
+
+n = int(input())
+S = inpl()
+q = int(input())
+T = inpl()
+
+S.sort()
+S.append(10**11)
+
+# print(S, bisect(S, T[0]))
+print(sum(1 for t in T if S[bisect(S, t)] == t))
+

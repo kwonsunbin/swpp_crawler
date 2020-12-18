@@ -1,0 +1,5 @@
+from bisect import bisect_left as bl
+N,*A=map(int,open(0))
+r=[A[0]]+[1e9]*N
+for a in A[1:]:i=bl(r,a);r[i]=min(r[i],a)
+print(bl(r,1e9))

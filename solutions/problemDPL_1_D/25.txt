@@ -1,0 +1,17 @@
+inf=10**12
+import sys
+input=sys.stdin.readline
+n=int(input())
+a=[int(input())for i in range(n)]
+dp=[inf]*n
+from bisect import bisect_left
+for i in range(n):
+	r=bisect_left(dp,a[i])
+	dp[r]=a[i]
+ans=0
+for i in range(n):
+	if dp[i]!=inf:
+		ans+=1
+	else:
+		break
+print(ans)

@@ -1,0 +1,17 @@
+import bisect
+
+N=int(input())
+A=[int(input()) for i in range(N)]
+
+DP=[float("inf")]*N
+
+for a in A:
+    pos=bisect.bisect_left(DP,a)
+    DP[pos]=a
+
+ANS=0
+for i in range(N):
+    if DP[i]!=float("inf"):
+        ANS=i
+
+print(ANS+1)

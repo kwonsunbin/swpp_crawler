@@ -1,0 +1,14 @@
+n = int(input())
+num = list(map(int, input().split()))
+
+q = int(input())
+for i in range(q):
+    query = list(map(int, input().split()))
+    flag = query[0]
+    start = query[1]
+    end = query[2]
+
+    if flag == 0:
+        print(min(num[start:end]))
+    elif flag == 1:
+        print(max(num[start:end]))

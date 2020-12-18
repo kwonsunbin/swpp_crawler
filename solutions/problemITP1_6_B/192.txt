@@ -1,0 +1,12 @@
+Suits = ['S', 'H', 'C', 'D']
+Taro = []
+Missing = []
+n = int(input())
+for i in range(n):
+    Taro.append(input())
+for j in range(52):
+    card = Suits[j//13] + ' ' + str(j % 13 + 1)
+    if card not in Taro:
+        Missing.append(card)
+if Missing != []:
+    print('\n'.join(Missing))

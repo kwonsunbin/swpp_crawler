@@ -1,0 +1,13 @@
+def resolve():
+    input()
+    A = [int(i) for i in input().split()]
+    Q = int(input())
+    for _ in range(Q):
+        q = [int(i) for i in input().split()]
+        if q[0] == 0:
+            print(min(A[q[1]:q[2]]))
+        else:
+            print(max(A[q[1]:q[2]]))
+
+
+resolve()

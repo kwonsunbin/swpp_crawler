@@ -1,0 +1,50 @@
+
+n=int(input())
+x=[1,2,3,4,5,6,7,8,9,10,11,12,13]
+s=[]
+h=[]
+c=[]
+d=[]
+for i in range(n):
+    egara,no=input().split()
+    No=int(no)
+    if egara=='S':
+        s.append(No)
+    elif egara=='H':
+        h.append(No)
+    elif egara=='C':
+        c.append(No)
+    elif egara=='D':
+        d.append(No)
+    
+s.sort()
+h.sort()
+c.sort()
+d.sort()
+
+for j in range(4):
+    if j==0:
+        ls=set(x)^set(s)
+        lslist=list(ls)
+        for k in range(len(ls)):
+            print('S',end=' ')
+            print(lslist[k])
+    elif j==1:
+        lh=set(x)^set(h)
+        lhlist=list(lh)
+        for l in range(len(lh)):
+            print('H',end=' ')
+            print(lhlist[l])
+    elif j==2:
+        lc=set(x)^set(c)
+        lclist=list(lc)
+        for m in range(len(lc)):
+            print('C',end=' ')
+            print(lclist[m])
+    elif j==3:
+        ld=set(x)^set(d)
+        ldlist=list(ld)
+        for o in range(len(ld)):
+            print('D',end=' ')
+            print(ldlist[o])
+        

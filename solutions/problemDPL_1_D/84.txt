@@ -1,0 +1,17 @@
+import bisect
+n = int(input())
+A =[]
+
+
+for i in range(n):
+  A.append(int(input()))
+
+L = [A[0]]
+
+for i in A:
+  if L[-1] < i:
+    L.append(i)
+  else:
+    L[bisect.bisect_left(L, i)] = i
+
+print(len(L))

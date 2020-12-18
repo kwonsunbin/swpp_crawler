@@ -1,0 +1,11 @@
+n=int(input()) 
+s=input().split() 
+
+q=int(input()) 
+t=input().split() 
+
+s=set(s)
+t=set(t)
+
+print(len(s&t)) 
+

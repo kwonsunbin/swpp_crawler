@@ -1,0 +1,23 @@
+n=int(input())
+s=list(range(1,14))
+h=list(range(1,14))
+c=list(range(1,14))
+d=list(range(1,14))
+for _ in range(n):
+    x,y=input().split()
+    if x=="S":
+        s.remove(int(y))
+    elif x=="H":
+        h.remove(int(y))
+    elif x=="C":
+        c.remove(int(y))
+    elif x=="D":
+        d.remove(int(y))
+for i in range(len(s)):
+    print("S",s[i])
+for i in range(len(h)):
+    print("H",h[i])
+for i in range(len(c)):
+    print("C",c[i])
+for i in range(len(d)):
+    print("D",d[i])

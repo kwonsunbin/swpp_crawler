@@ -1,0 +1,14 @@
+from sys import stdin
+import operator
+readline = stdin.readline
+
+
+n, total_wait = map(int, readline().split())
+value_wait = [list(map(int, readline().split())) for _ in range(n)]
+value_wait.sort(key=operator.itemgetter(1), reverse=True)
+
+dp = [[0] * (total_wait + 1) for _ in range(n + 1)]
+for ni, (v, w) in enumerate(value_wait):
+    for tw in range(w, total_wait + 1):
+        dp[ni + 1][tw] = max(dp[ni][tw], dp[ni][tw - w] + v)
+print(dp[-1][-1])

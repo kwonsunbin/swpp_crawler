@@ -1,0 +1,46 @@
+if __name__ == '__main__':
+	
+	N,W = map(int,input().split())
+	weight = []
+	value = []
+	
+	#dp問題では入力値をそれぞれ別の配列にいれて考えるらしい
+	for _ in range(N):
+		a,b = map(int,input().split())
+		#ここは注意 問題によって位置が逆
+		weight.append(b)
+		value.append(a)
+
+	#print(weight)
+
+	#最初の入れ物の作り方がかなり曖昧。勉強の必要あり
+	#DPテーブルの作成
+	
+	#dp = [[0]*(W+1) for _ in range(N+1)]
+	#print(dp)
+	
+	#初期値は大きなマイナス
+	INF = -10**19
+
+	#どちらでも同じ 私はこっち
+	dp = [[INF for _ in range(W+1)] for _ in range(N+1)]
+	#print(dp)
+	
+	#初期値設定 for文で作る
+	for i in range(W+1):
+		dp[0][i] = 0
+	
+	#print(dp)
+	
+	#dp-loop
+	for i in range(N):
+		for w in range(W+1):
+			#このif文がいまいちわからない
+			if weight[i] <= w:#選ぶとき
+				dp[i+1][w] = max(dp[i][w],dp[i][w-weight[i]]+value[i])
+			else:#選ばないとき
+				#これは別に難しくない
+				dp[i+1][w] = dp[i][w]
+	print(dp[N][W])
+	
+

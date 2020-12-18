@@ -1,0 +1,52 @@
+readline = open(0).readline
+writelines = open(1, 'w').writelines
+
+N = int(readline())
+A = map(int, readline().split())
+
+N0 = 2**(N-1).bit_length()
+D1 = [0]*(2*N0); D2 = [0]*(2*N0)
+
+for i, a in enumerate(A):
+    D1[i+N0-1] = D2[i+N0-1] = a
+
+for i in range(N0-2, -1, -1):
+    D1[i] = min(D1[2*i+1], D1[2*i+2])
+    D2[i] = max(D2[2*i+1], D2[2*i+2])
+
+def query_min(l, r):
+    L = l + N0; R = r + N0
+    s = 1e9
+    while L < R:
+        if R & 1:
+            R -= 1
+            s = min(s, D1[R-1])
+
+        if L & 1:
+            s = min(s, D1[L-1])
+            L += 1
+        L >>= 1; R >>= 1
+    return s
+def query_max(l, r):
+    L = l + N0; R = r + N0
+    s = -1e9
+    while L < R:
+        if R & 1:
+            R -= 1
+            s = max(s, D2[R-1])
+
+        if L & 1:
+            s = max(s, D2[L-1])
+            L += 1
+        L >>= 1; R >>= 1
+    return s
+
+
+C = [query_min, query_max].__getitem__
+Q = int(readline())
+ans = []
+for q in range(Q):
+    t, b, e = map(int, readline().split())
+    ans.append("%d\n" % C(t)(b, e))
+writelines(ans)
+

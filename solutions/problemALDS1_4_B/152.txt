@@ -1,0 +1,15 @@
+from bisect import bisect_left
+n = int(input())
+S = list(map(int, input().split()))
+p = int(input())
+T = list(map(int, input().split()))
+
+ans = 0
+def sh(num):
+    ind = bisect_left(S, num)
+    return S[ind] == num
+
+for t in T:
+    if sh(t):
+        ans += 1
+print(ans)

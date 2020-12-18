@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+
+import bisect
+
+n = int(input())
+A = [int(input()) for _ in range(n)]
+
+# last[m] == A[:i]中の長さmの増加部分列の末尾 (の最小値)
+last = [-1]
+
+for a in A:
+    m = bisect.bisect_left(last, a)
+    if m >= len(last):
+        last.append(a)
+    else:
+        last[m] = min(last[m], a)
+
+print(len(last) - 1)
+

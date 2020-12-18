@@ -1,0 +1,27 @@
+def binary_search(sorted_list, a):
+    left = 0
+    right = len(sorted_list)
+    while left < right:
+        mid = (left + right) // 2
+        if sorted_list[mid] < a:
+            left = mid + 1
+        else:
+            right = mid
+    return left
+
+
+def lis(A):
+    sorted_list = [10000000000]
+    for a in A:
+        if sorted_list[-1] < a:
+            sorted_list.append(a)
+        else:
+            sorted_list[binary_search(sorted_list, a)] = a
+    return len(sorted_list)
+        
+
+if __name__ == "__main__":
+    n = int(input())
+    a = [int(input()) for i in range(n)]
+
+    print(lis(a))

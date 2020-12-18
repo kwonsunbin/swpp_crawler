@@ -1,0 +1,15 @@
+n=int(input())
+a=list(map(int, input().split()))
+q=int(input())
+for i in range(q):
+    com,b,e=map(int,(input()).split())
+    if com==0:
+        if b==e-1:
+            print(a[e-1])
+        else:
+            print(min(a[b:e]))
+    if com==1:
+        if b==e-1:
+            print(a[e-1])
+        else:
+            print(max(a[b:e]))

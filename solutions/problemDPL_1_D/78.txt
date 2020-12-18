@@ -1,0 +1,18 @@
+import bisect
+n = int(input())
+l = []
+for _ in range(n):
+    l.append(int(input()))
+
+dp = [float('inf')]*n
+# print()
+for num in l:
+    i = bisect.bisect_left(dp,num)
+    # print(i)
+    dp[i] = num
+# print(dp)
+for j in range(n):
+    if dp[j] == float('inf'):
+        print(j)
+        exit()
+print(n)

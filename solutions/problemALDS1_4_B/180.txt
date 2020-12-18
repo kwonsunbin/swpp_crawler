@@ -1,0 +1,6 @@
+#ALDS1_4-B BinarySearch
+input()
+S=input().split()
+input()
+T=input().split()
+print(len(set(S)&set(T)))

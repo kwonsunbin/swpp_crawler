@@ -1,0 +1,5 @@
+a_len = int(input())
+a = {n for n in input().split(" ")}
+b_len = int(input())
+b = {n for n in input().split(" ")}
+print(len(a & b))

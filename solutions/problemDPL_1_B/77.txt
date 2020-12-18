@@ -1,0 +1,13 @@
+length, weight = (int(n) for n in input().split(" ") )
+dp = [0 for n in range(weight + 1)]
+for l in range(length):
+    v, w = (int(n) for n in input().split(" ") )
+    temp = dp[:]
+    for i, d in enumerate(dp):
+        if d and i + w <= weight:
+            temp[i + w] = max(d + v, dp[i + w])
+    dp = temp
+    dp[w] = max(v, dp[w])
+    # print(dp)
+print(max(dp))
+            

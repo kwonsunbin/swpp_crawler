@@ -1,0 +1,10 @@
+master = [(mark, number) for mark in ['S', 'H', 'C', 'D'] for number in range(1, 14)]
+n = int(input())
+cards = set()
+for x in range(n):
+    mark, number = input().split()
+    cards.add((mark, int(number)))
+lack = sorted((set(master) - cards), key = master.index)
+
+for x in lack:
+    print('%s %d' % x)

@@ -1,0 +1,21 @@
+n = int(input())
+s = list(map(int, input().split()))
+q = int(input())
+t = list(map(int, input().split()))
+
+def BinarySearch(s,t):
+    left = 0
+    right = len(s)
+    while(left < right):
+        mid = (left + right)//2
+        if(s[mid] == t):
+            return 1
+        elif (t < s[mid]):
+            right = mid
+        else:
+            left = mid + 1
+    return 0
+count = 0
+for i in t:
+    count = count + BinarySearch(s,i)
+print(count)

@@ -1,0 +1,28 @@
+c=list(range(1,53))
+n=int(input())
+d=[]
+for i in range(n):
+    a,b=input().split()
+    b=int(b)
+    if a=="S":
+        d.append(b)
+    elif a=="H":
+        d.append(b+13)
+    elif a=="C":
+        d.append(b+26)
+    else:
+        d.append(b+39)
+        
+for i in range(52):
+    
+    if c[i] in d:
+        continue
+    else:
+        if c[i]<=13:
+            print('S {}'.format(c[i]))
+        elif c[i]<=26:
+            print('H {}'.format(c[i]-13))
+        elif c[i]<=39:
+            print('C {}'.format(c[i]-26))
+        else:
+            print('D {}'.format(c[i]-39))

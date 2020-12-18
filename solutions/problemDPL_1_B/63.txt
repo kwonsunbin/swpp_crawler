@@ -1,0 +1,16 @@
+N, W = map(int, input().split())  # N個の品物, 容量Wのナップサック
+items = [list(map(int, input().split())) for _ in range(N)]  # v, w
+dp = [[0]*(W+1) for _ in range(N+1)]  # i番目までの品物を使ったときに、重さWで実現できる最大の価値
+dp[0][0] = 0  # 雰囲気だけで行う初期化
+for i in range(N):  # N個の品物について
+    for j in range(W+1):
+        # 使わない場合
+        dp[i+1][j] = max(dp[i+1][j], dp[i][j])
+        # 使う場合
+        if j + items[i][1] > W:
+            continue
+        dp[i+1][j+items[i][1]] = max(dp[i+1][j+items[i][1]], dp[i][j]+items[i][0])
+
+ans = max(dp[N])
+print(ans)
+

@@ -1,0 +1,24 @@
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+T = list(map(int, input().split()))
+
+def binary_search(list,item):
+    low = 0
+    high = len(list)-1
+    while low <= high:
+        mid = (low+high)//2
+        guess = list[mid]
+        if guess == item:
+            return True
+        if guess > item:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return False
+
+ans = 0
+for i in T:
+    if binary_search(S,i):
+        ans+=1
+print(ans)

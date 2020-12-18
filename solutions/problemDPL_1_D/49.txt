@@ -1,0 +1,21 @@
+import bisect
+
+def main():
+    A = []
+    length = 0
+    
+    for i in range(int(input())):
+        a = int(input())
+    
+        idx = bisect.bisect_left(A, a)
+        
+        if idx == length:
+            A.append(a)
+            length += 1
+            
+        else: A[idx] = a
+        
+    print(length)
+            
+if __name__ == '__main__':
+    main()

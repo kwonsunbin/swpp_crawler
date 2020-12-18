@@ -1,0 +1,16 @@
+n, w = map(int, input().split())
+info = [list(map(int, input().split())) for i in range(n)]
+
+# dp[i][j] := i番目までの品物の中から重さがjを超えないように選んだときの、価値の総和の最大値
+dp = [[0]*(w+1) for i in range(n+1)]
+
+for i in range(n):
+    for j in range(w+1):
+        weight = info[i][1]
+        value = info[i][0]
+        if j < weight:
+            dp[i+1][j] = dp[i][j]
+        else:
+            dp[i+1][j] = max(dp[i][j], dp[i][j-weight] + value)
+print(dp[n][w])
+

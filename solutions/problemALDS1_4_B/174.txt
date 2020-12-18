@@ -1,0 +1,10 @@
+import bisect
+
+n = int(input())
+S = set(list(map(int, input().split(" "))))
+q = int(input())
+T = set(map(int, input().split(" ")))
+
+A = S & T
+print(len(A))
+

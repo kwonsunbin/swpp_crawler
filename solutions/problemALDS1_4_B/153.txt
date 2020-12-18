@@ -1,0 +1,23 @@
+import sys
+def I(): return int(sys.stdin.readline().rstrip())
+def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
+n = I()
+S = LI()
+q = I()
+T = LI()
+ans = 0
+def is_ok(i):
+    return x>=S[i]
+def binarysearch(x):
+    ok,ng = -1,n
+    while abs(ok-ng)>1:
+        mid = (ok+ng)//2
+        if is_ok(mid):
+            ok = mid
+        else:
+            ng = mid
+    return S[max(ok,0)]
+for x in T:
+    if x==binarysearch(x):
+        ans += 1
+print(ans)

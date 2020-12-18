@@ -1,0 +1,36 @@
+def LIS(n, a):
+	lis = 0
+	dp = [0] * n
+	dp[0] = a[0]
+	for i in range(1, n):
+		cur = a[i]
+		if cur < dp[0]:
+			dp[0] = cur
+		elif cur > dp[lis]:
+			lis += 1
+			dp[lis] = cur
+		else:
+			idx = find_pos(cur,0,lis,dp)
+			dp[idx] = cur
+	return lis + 1
+
+def find_pos(target, floor, ceiling, dp):
+	while floor < ceiling:
+		guess_idx = int(floor+(ceiling-floor)/2)
+		guess_val = dp[guess_idx]
+		if guess_val == target:
+			return guess_idx
+		if guess_val < target:
+			floor = guess_idx + 1
+		else:
+			ceiling = guess_idx - 1
+	if dp[floor] < target:
+		return floor + 1
+	return floor
+
+n = int(input())
+a = [0] * n
+for i in range(n):
+	a[i] = int(input())
+print(LIS(n, a))
+

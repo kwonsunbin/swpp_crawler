@@ -1,0 +1,14 @@
+n=int(input())
+l=[]
+from bisect import bisect_left
+for i in range(n):
+    a=int(input())
+    if l==[]:
+        l.append(a)
+    else:
+        if l[-1]<a:
+            l.append(a)
+        else:
+            l[bisect_left(l,a)]=a
+
+print(len(l))

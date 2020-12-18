@@ -1,0 +1,11 @@
+input()
+nums = list(map(int, input().split(' ')))
+r = input()
+for _ in range(int(r)):
+    mx, f, l = list(map(int, input().split(' ')))
+    if mx:
+        print(max(nums[f:l]))
+    else:
+        print(min(nums[f:l]))
+
+

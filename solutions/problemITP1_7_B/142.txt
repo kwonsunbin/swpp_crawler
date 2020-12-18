@@ -1,0 +1,12 @@
+import itertools
+while True:
+    n,x=map(int,input().split())
+    if n==0 and x==0:
+        break
+    else:
+        y=[]
+        l=list(range(1,n+1))
+        for t in itertools.combinations(l,3):
+            s=sum(t)
+            y.append(s)
+        print(y.count(x))

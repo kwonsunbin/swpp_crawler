@@ -1,0 +1,18 @@
+import sys,os,re
+from collections import Counter,deque
+from operator import itemgetter
+from itertools import accumulate
+sys.setrecursionlimit(10**6)
+
+card=[[False for i in range(13)]for j in range(4)]
+mark=["S","H","C","D"]
+
+n=int(input())
+for i in range(n):
+    s,m=input().split()
+    card[mark.index(s)][int(m)-1]=True
+
+for i in range(4):
+    for j in range(13):
+        if not card[i][j]:
+            print(mark[i],j+1)

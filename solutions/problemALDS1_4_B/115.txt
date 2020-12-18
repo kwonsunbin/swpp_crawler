@@ -1,0 +1,17 @@
+
+import bisect
+
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+T = list(map(int, input().split()))
+
+counter = 0
+
+for t in T:
+    a = bisect.bisect_left(S, t)
+    if a < n:
+        if S[a] == t:
+            counter += 1
+
+print(counter)

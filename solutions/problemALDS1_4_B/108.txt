@@ -1,0 +1,28 @@
+
+def binary_search_internal(l, r, k, S):
+    if l > r:
+        return None
+    center = (l + r) // 2
+    v = S[center]
+    if v == k:
+        return center
+    elif v < k:
+        return binary_search_internal(center + 1, r, k, S)
+    else:
+        return binary_search_internal(l, center - 1, k, S)
+
+def binary_search(k, S):
+    return binary_search_internal(0, len(S) - 1, k, S)
+
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+Q = map(int, input().split())
+
+count = 0
+for k in Q:
+    index = binary_search(k, S)
+    if index != None:
+        count += 1
+
+print(count)

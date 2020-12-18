@@ -1,0 +1,13 @@
+from bisect import bisect_left
+N = int(input())
+A = [int(input()) for _ in range(N)]
+
+
+INF = 10 ** 10
+dp = [INF] * N
+res = 0
+for i in range(N):
+    idx = bisect_left(dp,A[i])
+    dp[idx] = A[i]
+print(bisect_left(dp, INF))
+

@@ -1,0 +1,36 @@
+n=int(input())
+s=list(range(1,14))
+h=list(range(1,14))
+c=list(range(1,14))
+d=list(range(1,14))
+for i in range(n):
+    nyuuryoku=list(input())
+    egara=nyuuryoku[0]
+    if len(nyuuryoku)==4:
+        suuji=nyuuryoku[2]+nyuuryoku[3]
+    else:
+        suuji=nyuuryoku[2]
+    if egara=='S':
+        for i in s:
+            if int(suuji)==i:
+                s.remove(i)
+    if egara=='H':
+        for i in h:
+            if int(suuji)==i:
+                h.remove(i) 
+    if egara=='C':
+        for i in c:
+            if int(suuji)==i:
+                c.remove(i) 
+    if egara=='D':
+        for i in d:
+            if int(suuji)==i:
+                d.remove(i) 
+for i in range(len(s)):
+    print('S',s[i])
+for i in range(len(h)):
+    print('H',h[i])  
+for i in range(len(c)):
+    print('C',c[i])
+for i in range(len(d)):
+    print('D',d[i]) 

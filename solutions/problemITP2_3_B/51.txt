@@ -1,0 +1,9 @@
+x = input()
+x = [int(i) for i in input().split()]
+q = int(input())
+for i in range(q):
+    com = [int(i) for i in input().split()]
+    if com[0]:
+        print(max(x[com[1]:com[2]]))
+    else:
+        print(min(x[com[1]:com[2]]))

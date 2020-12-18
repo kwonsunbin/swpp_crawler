@@ -1,0 +1,17 @@
+def main():
+    from bisect import bisect_left
+    n, *A = map(int, open(0).read().split())
+    length = 0
+    lis = []
+    for a in A:
+        i = bisect_left(lis, a)
+        if i == length:
+            lis.append(a)
+            length += 1
+        else:
+            lis[i] = a
+    print(length)
+
+if __name__ == '__main__':
+    main()
+

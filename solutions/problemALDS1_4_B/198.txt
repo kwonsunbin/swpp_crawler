@@ -1,0 +1,9 @@
+n = int(input())
+S = map(int, input().split())
+q = int(input())
+T = map(int, input().split())
+
+s_set = set(S)
+t_set = set(T)
+sandt = s_set & t_set
+print(len(sandt))

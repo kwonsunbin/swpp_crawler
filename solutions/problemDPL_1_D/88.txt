@@ -1,0 +1,14 @@
+INF = float('inf')
+import bisect
+L = list()
+n = int(input())
+for i in range(n):
+  L.append(int(input()))
+LIS = [INF] * n
+for i in range(n):
+  LIS[bisect.bisect_left(LIS, L[i])] = L[i]
+for i in range(n):
+  if(LIS[i] == INF):
+    print(i)
+    exit()
+print(n)

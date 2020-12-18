@@ -1,0 +1,14 @@
+import itertools
+while True :
+    n,x = map(int,input().split())
+    if n==0 and x==0 :
+        break
+    N=list(range(1,n+1))
+    l=[]
+    for j in itertools.combinations(N, 3):
+        X=sum(j)
+        if X==x :
+            l.append(1)
+    print(sum(l))
+   
+    

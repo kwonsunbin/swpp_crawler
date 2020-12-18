@@ -1,0 +1,22 @@
+# http://even-eko.hatenablog.com/entry/2013/09/05/215236
+# https://qiita.com/python_walker/items/d1e2be789f6e7a0851e5
+
+import bisect
+
+N = int(input())
+Data = []
+for _ in range(N):
+    Data.append(int(input()))
+
+LIS = []
+LIS.append( Data[0] )
+
+for i in range(1,N):
+    n = Data[i]
+    if n > LIS[-1]:
+        LIS.append(n)
+    else:
+        p = bisect.bisect_left(LIS,n)
+        LIS[p] = n
+
+print(len(LIS))

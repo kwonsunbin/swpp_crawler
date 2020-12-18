@@ -1,0 +1,16 @@
+while True:
+    n, x = map(int, input().split())
+    if (n,x) == (0,0) : break
+    cnt = 0
+    if 3*(n-1) >= x:
+        a_max = x//3 - 1
+        if 2*n -1 < x:
+            a_min = x - (2*n-1)
+        else :
+            a_min = 1
+        for a in range(a_min,a_max+1):
+            b_max = (x-a-1)//2
+            b_min = (x-a) - n
+            b_min = b_min if b_min > a+1 else a+1
+            cnt += b_max - b_min +1
+    print(cnt)

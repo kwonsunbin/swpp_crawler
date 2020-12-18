@@ -1,0 +1,28 @@
+from bisect import bisect_left
+
+
+def solve(n, sx):
+    # Minimum value of last element in len(i+1) increasing subsequence.
+    tbl = [float('inf')]*n
+    # 5 6 9 1 10
+
+    for i in range(n):
+        idx = bisect_left(tbl, sx[i])
+        tbl[idx] = sx[i]
+        # [5,inf,inf,inf]
+        # .
+        # .
+        # [5,6,9,inf,inf]
+        # [1,6,9,inf,inf,]
+        # [1,6,9,10,inf,]
+
+    return bisect_left(tbl, float('inf'))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    sx = []
+    for _ in range(n):
+        sx.append(int(input()))
+
+    print(solve(n, sx))

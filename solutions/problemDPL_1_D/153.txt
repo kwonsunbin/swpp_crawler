@@ -1,0 +1,74 @@
+# coding:UTF-8
+import sys
+from math import factorial
+
+class SegmentTree:
+    def __init__(self, size, operator, identity):
+        sizebin = bin(size)[2:]
+        binsum = sum([int(digit) for digit in sizebin])
+        if binsum == 1:
+            self.num_end_leaves = 2**(len(sizebin)-1)
+        else:
+            self.num_end_leaves = 2**(len(sizebin))
+
+        self.array = [identity for _ in range(self.num_end_leaves * 2)]
+        self.identity = identity
+        self.operator = operator
+
+    def update(self, x, val):
+        x += self.num_end_leaves
+        self.array[x] = val
+        while x > 0:
+            x = x // 2
+            self.array[x] = self.operator(self.array[x*2], self.array[x*2+1])
+
+    def get(self, l, r):
+        # [l, r)
+        ret = self.identity
+
+        l += self.num_end_leaves
+        r += self.num_end_leaves
+        while l < r:
+            if l & 1:
+                ret = self.operator(ret, self.array[l])
+                l += 1
+            if r & 1:
+                ret = self.operator(ret, self.array[r - 1])
+            l >>= 1
+            r >>= 1
+        return ret
+
+    def __str__(self):
+        from math import log
+        return '\n'.join('{}'.format(self.array[2 ** i:2 ** (i + 1)]) for i in range(int(log(self.num_end_leaves, 2)) + 1))
+
+
+MOD = 10 ** 9 + 7
+INF = float('inf')
+
+n = int(input())    # 数字
+a = [int(input()) for _ in range(n)] # 数字
+
+aindex = [[a[i], i] for i in range(n)]
+aindexsort = sorted(aindex, key=lambda x: x[0])
+
+aindexsort2 = [[] for _ in range(n)]
+ii = 0
+aindexsort2[0] = [aindexsort[0][0], aindexsort[0][1], ii]
+for i in range(1, n):
+    if aindexsort[i][0] != aindexsort[i-1][0]:
+        ii += 1
+    aindexsort2[i] = [aindexsort[i][0], aindexsort[i][1], ii]
+
+alast = sorted(aindexsort2, key=lambda x: x[1])
+
+st = SegmentTree(n, max, 0)
+
+res = 0
+for i in range(n):
+    f = st.get(0, alast[i][2])
+    st.update(alast[i][2], f+1)
+    res = max(res, f+1)
+
+print("{}".format(res))
+

@@ -1,0 +1,6 @@
+n = int(input())
+F = set(list(map(int, input().split())))
+q = int(input())
+T = set(list(map(int, input().split())))
+
+print(len(F & T))

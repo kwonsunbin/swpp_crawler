@@ -1,0 +1,13 @@
+from bisect import bisect_left
+length = int(input())
+target = []
+for _ in range(length):
+    target.append(int(input()))
+lis = [target[0]]
+for t in target[1:]:
+    if t > lis[-1]:
+        lis.append(t)
+    else:
+        lis[bisect_left(lis, t)] = t
+print(len(lis))
+

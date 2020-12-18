@@ -1,0 +1,22 @@
+def binary_search(ary, key, imin, imax):
+    if imax < imin:
+        return False
+    else:
+        imid = imin + (imax - imin) // 2
+        if ary[imid] > key:
+            return binary_search(ary, key, imin, imid - 1)
+        elif ary[imid] < key:
+            return binary_search(ary, key, imid + 1, imax)
+        else:
+            return True
+
+n = int(input())
+s = list(map(int, input().split()))
+q = int(input())
+t = list(map(int, input().split()))
+
+cnt = 0
+for i in t:
+    if binary_search(s, i, 0, n-1):
+        cnt += 1
+print(cnt)

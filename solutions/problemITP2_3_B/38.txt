@@ -1,0 +1,9 @@
+input()
+listnum = list(map(int, input().split()))
+for i in range(int(input())):
+    eachq = list(map(int, input().split()))
+    if eachq[0] == 0:
+        print(min(listnum[eachq[1]:eachq[2]]))
+    elif eachq[0] == 1:
+        print(max(listnum[eachq[1]:eachq[2]]))
+

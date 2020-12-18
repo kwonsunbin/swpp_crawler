@@ -1,0 +1,15 @@
+def main():
+    input()
+    a = [int(x) for x in input().split(' ')]
+    q = int(input())
+    for i in range(q):
+        cmd, b, e = [int(x) for x in input().split(' ')]
+        if cmd == 0:
+            print(min(a[b:e]))
+        else:
+            print(max(a[b:e]))
+
+
+if __name__ == '__main__':
+    main()
+

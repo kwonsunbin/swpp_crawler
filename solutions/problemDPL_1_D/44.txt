@@ -1,0 +1,9 @@
+from bisect import bisect
+n = int(input())
+dp = [10**10]*(n+1)
+dp[0] = -1
+for i in range(n):
+    a = int(input())
+    idx = bisect(dp, a-1)
+    dp[idx] = min(a, dp[idx])
+print( bisect(dp, 10**10-1)-1)

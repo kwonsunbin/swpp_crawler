@@ -1,0 +1,26 @@
+def num(a,b,d):
+    if a[0] == b:
+        c=int(a[1])
+        d.append(c)
+        
+def printcard(d,b):
+    for i in range(1,14):
+        if (i in d) == False:
+            print(b+str(i))
+        
+n=int(input())
+d1=[]
+d2=[]
+d3=[]
+d4=[]
+for i in range (n):
+    x=list(input().split())
+    num(x,'S',d1)
+    num(x,'H',d2)
+    num(x,'C',d3)
+    num(x,'D',d4)
+
+printcard(d1,'S ')
+printcard(d2,'H ')
+printcard(d3,'C ')
+printcard(d4,'D ')

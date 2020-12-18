@@ -1,0 +1,25 @@
+# 制約に入力Sは昇順ソート済みとあるので二分探索で高速化する
+def binarySearch(A,x):
+    head = 0
+    tail = len(A)
+    while head < tail:
+        mid = (head + tail)//2
+        if A[mid] == x:
+            return True         # ここでmid,つまりAのインデックスを返すのもよき
+        elif A[mid] > x:
+            tail = mid
+        elif A[mid] < x:
+            head = mid+1        # midの部分も違うのでmid+1してよい
+    
+    return False
+
+n = int(input())
+S = list(map(int,input().split()))
+q = int(input())
+T = list(map(int,input().split()))
+
+ans = 0
+for num in T:
+    if binarySearch(S,num):
+        ans += 1
+print(ans)

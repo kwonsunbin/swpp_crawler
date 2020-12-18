@@ -1,0 +1,23 @@
+import bisect
+
+def LIS():
+    L.append(a[0])
+    length[0] = 1
+    
+    for i in range(n-1):
+        if L[-1]<a[i+1]:
+            L.append(a[i+1])
+            length[i+1] = length[i]+1
+        else:
+            L[bisect.bisect_left(L,a[i+1])] = a[i+1]
+            length[i+1] = length[i]
+            
+    return length[-1]
+    
+n = int(input())
+a = [int(input()) for _ in range(n)]
+
+L = []
+length = [None]*n
+
+print(LIS())

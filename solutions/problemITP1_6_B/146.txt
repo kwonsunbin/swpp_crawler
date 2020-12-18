@@ -1,0 +1,23 @@
+n = int(input())
+s = [n for n in range(1, 14)]
+h = [n for n in range(1, 14)]
+c = [n for n in range(1, 14)]
+d = [n for n in range(1, 14)]
+suits = ['S', 'H', 'C', 'D']
+for i in range(n):
+    x, y = [z for z in input().split()]
+    y = int(y)
+    if x == 'S':
+        s[y - 1] = 0
+    elif x == 'H':
+        h[y - 1] = 0
+    elif x == 'C':
+        c[y - 1] = 0
+    else:
+        d[y - 1] = 0
+
+data = [s, h, c, d]
+for i in range(4):
+    for x in data[i]:
+        if x != 0:
+            print(suits[i], str(x))

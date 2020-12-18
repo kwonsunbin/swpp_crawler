@@ -1,0 +1,17 @@
+# aのLongest Increasing Subsequence (LIS)を求めよ
+# https://qiita.com/python_walker/items/d1e2be789f6e7a0851e5
+from bisect import bisect_left
+n = int(input())
+a = [int(input()) for _ in range(n)]  # a[i] >= 0
+
+# dp[i] = min{a_ji | 長さがiのincreasing subsequence a_j0 < a_j1 < ... < a_ji}
+
+dp = [a[0]]  # a[0] < dp[0]となる
+for i in range(n):
+    k = bisect_left(dp, a[i])
+    if k == len(dp):
+        dp.append(a[i])
+    else:  # k < len(dp)
+        dp[k] = a[i]
+
+print(len(dp))

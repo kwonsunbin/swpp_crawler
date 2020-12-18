@@ -1,0 +1,19 @@
+
+def main():
+    param = input()
+    param = input().split(" ")
+    seq = [ int(a) for a in param]
+
+    n = int(input())
+
+    for _ in range(n):
+
+        param = input().split(" ")
+
+        if param[0] == "0":
+            print(min(seq[int(param[1]):int(param[2])]))
+        elif param[0] == "1":
+            print(max(seq[int(param[1]):int(param[2])]))
+
+main()
+

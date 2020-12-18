@@ -1,0 +1,12 @@
+import itertools
+
+while True:
+    n, x = map(int,input().split())
+    if n == 0 and x == 0 :
+        break
+    N = list(range(1,n+1))
+    k = 0
+    for i in itertools.combinations(N, 3):
+        if sum(i) == x:
+            k += 1
+    print(k)

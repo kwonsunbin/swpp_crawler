@@ -1,0 +1,48 @@
+# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_4_B&lang=jp
+sample_input = list(range(3))
+sample_input[0] = '''5
+1 2 3 4 5
+3
+3 4 1'''
+sample_input[1] = '''3
+1 2 3
+1
+5'''
+sample_input[2] = ''''''
+give_sample_input = None
+if give_sample_input is not None:
+    sample_input_list = sample_input[give_sample_input].split('\n')
+    def input():
+        return sample_input_list.pop(0)
+        
+# main
+num_of_S = int(input())
+S = list(map(int, input().split(' ')))
+num_of_T = int(input())
+T = list(map(int, input().split(' ')))
+
+def binary_search(increasing_list, elem):
+    index_min = 0
+    index_max = num_of_S-1
+    
+    while index_max - index_min >= 2:
+        index_middle = int((index_min + index_max) / 2)
+        if increasing_list[index_middle] == elem:
+            return True
+        elif increasing_list[index_middle] > elem:
+            index_max = index_middle
+        else:
+            index_min = index_middle
+            
+    if increasing_list[index_min] == elem:
+        return True
+    elif increasing_list[index_max] == elem:
+        return True
+    else:
+        return False
+
+count = 0
+for t in T:
+    if binary_search(S, t):
+        count += 1
+print(count)

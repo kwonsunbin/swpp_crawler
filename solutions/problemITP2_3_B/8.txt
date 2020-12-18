@@ -1,0 +1,11 @@
+# 標準入力とループ
+n = int(input())
+a = list(map(int, input().split()))
+for _ in range(int(input())):
+    com, b, e = map(int,input().split())
+    
+    # 入力値の1個目が0ならリストをスライスして最小値を出力する
+    if com == 0:print(min(a[b:e]))
+    
+    # 入力値の1個目が1ならリストをスライスして最大値を出力する
+    elif com == 1:print(max(a[b:e]))

@@ -1,0 +1,8 @@
+import sys
+
+sys.stdin.readline()
+a = list(map(int, sys.stdin.readline().split()))
+f=[min,max]
+for _ in range(int(sys.stdin.readline())):
+    c, b, e = map(int, sys.stdin.readline().split())
+    print(f[c](a[b:e]))

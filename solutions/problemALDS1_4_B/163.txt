@@ -1,0 +1,38 @@
+# your code goes here
+#binary search function
+def bi(B0,bA,BI):
+    bm=bA[1]+bA[2]
+    bm//=2
+    if BI[bA[1]]<=B0<=BI[bm]:
+        bA=[0,bA[1],bm]
+    else:
+        bA=[0,bm,bA[2]]
+   # print(bA)
+    return bA
+def bs(B0,BI):
+    if B0<BI[0]:
+        bA=[0,0,0]
+    elif B0>BI[-1]:
+        bA=[0,-1,-1]
+    else:
+        bA=[0,0,len(BI)-1]
+        while bA[2]-bA[1]>1:
+            bA=bi(B0,bA,BI)
+        if B0==BI[bA[1]]:
+            bA=[1,bA[1]]
+        elif B0==BI[bA[2]]:
+            bA=[1,bA[2]]
+        else:
+            bA=[0,bA[1],bA[2]]
+   # print(bA)
+    return bA
+n=int(input())
+S=[int(i) for i in input().split()]
+q=int(input())
+T=[int(i) for i in input().split()]
+c=0
+for i in range(q):
+    bA=bs(T[i],S)
+    if bA[0]==1:
+        c+=1
+print(c)

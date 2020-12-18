@@ -1,0 +1,11 @@
+import bisect
+INF=10**18
+n=int(input())
+a=[int(input()) for _ in range(n)]
+dp=[]
+for i in a:
+  if bisect.bisect_left(dp,i)==len(dp):
+    dp.append(i)
+  else:
+    dp[bisect.bisect_left(dp,i)]=i
+print(len(dp))

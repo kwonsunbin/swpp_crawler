@@ -1,0 +1,12 @@
+N,W = map(int,input().split())
+l = []
+dp = [[0]*(W+1) for _ in range(N+1)]
+for i in range(N):
+  v,w = map(int,input().split())
+  l.append([v,w])
+
+for i in range(N):
+  for j in range(W+1):
+    dp[i+1][j] = dp[i][j]
+    if j >= l[i][1]: dp[i+1][j] = max(dp[i+1][j],dp[i][j-l[i][1]]+l[i][0])
+print(dp[-1][-1])

@@ -1,0 +1,7 @@
+result = [(temp1 + str(temp2)) for temp1 in ('S ','H ','C ','D ') for temp2 in range(1,14)]
+
+for check in range(int(input())) :
+    result.remove(input())
+
+for temp in result :
+    print(temp)

@@ -1,0 +1,15 @@
+n = int(input())
+card = []
+
+pattern = ["S","H","C","D"] 
+for i in pattern:
+    for j in range(1, 14):
+        card.append([i, j])
+
+for i in range(1, n+1):
+    a, b = input().split()
+    card.remove([a, int(b)])
+    
+for i in range(len(card)):
+    print(*card[i])
+

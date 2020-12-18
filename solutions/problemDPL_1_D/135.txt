@@ -1,0 +1,21 @@
+import bisect
+
+n = int(input())
+a = [int(input()) for _ in range(n)]
+# LIS
+# 前から順番に埋めていく
+# 順番に入る箇所を二分探索する bisect_right
+# 1,3,3,4 3 -> 3 , 4-> 4
+INF = 10 ** 9 + 1
+dp = [INF] * n
+ans = 0
+for i in range(n):
+    idx = bisect.bisect_left(dp, a[i])
+    """
+    if dp[idx - 1] == a[i]:  # 同じ数が並んできるケース
+        continue
+    """
+    ans = max(idx + 1, ans)
+    dp[idx] = a[i]
+print(ans)
+

@@ -1,0 +1,11 @@
+s= []
+n=int(input())
+for i in range(n):
+  s.append(int(input()))
+from bisect import bisect_left
+inf=float('inf')
+dp=[inf]*1000000
+for i in range(n):
+    dp[bisect_left(dp, s[i])] = s[i]
+print(bisect_left(dp, inf))
+

@@ -1,0 +1,20 @@
+n = int(input())
+
+A = list(map(int, input().split()))
+
+q = int(input())
+
+
+for _ in range(q):
+
+    com, b, e = map(int, input().split())
+
+    if   com == 0:
+        # min(b,e)
+        print(min(A[b:e]))
+    elif com == 1:
+        # max(b,e)
+        print(max(A[b:e]))
+    else:
+        raise
+

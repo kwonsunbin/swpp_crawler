@@ -1,0 +1,12 @@
+import bisect
+n = int(input())
+a = [int(input()) for _ in range(n)]
+
+li = [a[0]]
+for i in a[1:]:
+    if i > li[-1]:
+        li.append(i)
+    else:
+        li[bisect.bisect_left(li,i)] = i
+print (len(li))
+

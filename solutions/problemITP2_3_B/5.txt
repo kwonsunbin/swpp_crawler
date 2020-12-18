@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+"""
+Basic Operations - Min-Max Element
+http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP2_3_B&lang=jp
+
+"""
+
+n = int(input())
+A = [int(a) for a in input().split()]
+for _ in range(int(input())):
+    com, b, e = input().split()
+    if com == '0':
+        print(min(A[int(b):int(e)]))
+    else:
+        print(max(A[int(b):int(e)]))
+

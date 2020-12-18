@@ -1,0 +1,16 @@
+from bisect import bisect_left
+
+N = int(input())
+
+A = [int(input()) for _ in range(N)]
+
+LIS = [A[0]]                            # i番目の成分 = 長さ i+1 の増加部分列の最後の要素の値
+
+for a in A[1:]:
+    if a > LIS[-1]:                     # 最大の長さの増加部分列の最後の要素より大きい値なら、これを用いて１つ長い増加部分列を作ることができる。
+                                        # 更新前の最長増加部分列 = [..., L[-1]]、更新後の最長増加部分列 = [..., L[-1], a]
+        LIS.append(a)
+    else:
+        LIS[bisect_left(LIS, a)] = a    # 最長ではない増加部分列の最後の要素を小さい値に更新。これにより、a > LIS[-1] を満たす可能性が増える。
+
+print(len(LIS))

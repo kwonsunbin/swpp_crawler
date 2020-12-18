@@ -1,0 +1,19 @@
+import bisect
+
+inf = 1 << 60
+N = int(input())
+A = []
+for i in range(N):
+    A.append(int(input()))
+
+# lis[n] = 最長増加部分列の長さがnであるものの最終要素の最小値
+lis = [A[0]]
+
+for a in A:
+    if lis[-1] < a:
+        lis.append(a)
+    else:
+        lis[bisect.bisect_left(lis, a)] = a
+
+print(len(lis))
+

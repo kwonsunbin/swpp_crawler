@@ -1,0 +1,10 @@
+from bisect import bisect_left
+alen=int(input())
+ans=[int(input())]
+for i in range(alen-1):
+    n=int(input())
+    if n>ans[-1]:
+        ans.append(n)
+    else:
+        ans[bisect_left(ans,n)]=n
+print(len(ans))

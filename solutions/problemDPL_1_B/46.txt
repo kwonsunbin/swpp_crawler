@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+N, W = [int(t) for t in input().split()]
+item = [tuple(int(t) for t in input().split()) for _ in range(N)]
+
+# value[u] = 品物 0〜i だけ, かつ容量 u での最大価値
+value = {u: 0 for u in range(W + 1)}
+
+# 品物の種類をだんだん増やす
+for v, w in item:
+    value = {u: (max(value[u - w] + v, value[u]) if u >= w else value[u])
+             for u in range(W + 1)}
+
+print(value[W])
+

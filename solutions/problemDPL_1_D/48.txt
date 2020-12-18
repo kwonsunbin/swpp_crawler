@@ -1,0 +1,13 @@
+from bisect import bisect_left
+
+INF = 10**9 + 1
+n = int(input())
+dp = [INF] * (n+1)
+
+for _ in range(n):
+    a = int(input())
+    i = bisect_left(dp, a)
+    dp[i] = a
+    # print(dp)
+
+print(bisect_left(dp, INF))

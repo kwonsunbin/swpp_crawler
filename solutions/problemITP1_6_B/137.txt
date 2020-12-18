@@ -1,0 +1,11 @@
+n = int(input())
+a = [input().split() for _ in range(n)]
+marks = ['S', 'H', 'C', 'D']
+for i in range(n):
+    a[i][1] = int(a[i][1])
+a.sort(key=lambda x: marks.index(x[0])*100 + x[1])
+for m in marks:
+    for n in range(1, 14):
+        if [m, n] not in a:
+            print(m, n)
+

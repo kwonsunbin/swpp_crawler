@@ -1,0 +1,18 @@
+n, w = [int(_) for _ in input().split()]
+
+ans = [[-1 for i in range(w+1)]for i in range(2)]
+
+ans[0][0] = 0
+ans[1][0] = 0
+c = 0
+for i in range(n):
+    s, t = [int(_) for _ in input().split()]
+    for j in range(w-t+1):
+        if ans[c][j] > -1:
+            ans[not(c)][t+j] = max(ans[c][t+j], ans[c][j]+s)
+    for j in range(w):
+        ans[c][j] = ans[not(c)][j]
+    c = not(c)
+print(max(ans[c]))
+# print(ans)
+

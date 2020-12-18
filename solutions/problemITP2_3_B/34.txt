@@ -1,0 +1,7 @@
+a=int(input())
+b=[int(x) for x in input().split()]
+c=int(input())
+for x in range(c):
+    d1,d2,d3=input().split()
+    if(d1=="0"):print(min( b[ int(d2):int(d3)] ))
+    if(d1=="1"):print(max( b[ int(d2):int(d3)] ))

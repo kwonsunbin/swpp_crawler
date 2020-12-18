@@ -1,0 +1,24 @@
+
+def main():
+    n = int(input())
+    a = list(map(int,input().split()))
+    m = int(input())
+    b = list(map(int,input().split()))
+    res = 0
+    for i in range(m):
+        l = 0
+        r = n
+        while l<r:
+            mid = int((l+r)/2)
+            if b[i]==a[mid]:
+                res+=1
+                break
+            if b[i]>a[mid]:l = mid+1
+            else          :r = mid
+    print (res)
+
+
+if __name__ == '__main__':
+    main()
+
+

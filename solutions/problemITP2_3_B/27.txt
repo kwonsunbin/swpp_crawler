@@ -1,0 +1,9 @@
+n = int(input())
+a = list(map(int,input().split()))
+for i in range(int(input())):
+    l = list(map(int,input().split()))
+    if l[0]:
+        print(max(a[l[1]:l[2]]))
+    else:
+        print(min(a[l[1]:l[2]]))
+        

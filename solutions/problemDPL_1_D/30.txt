@@ -1,0 +1,18 @@
+INF = 10**9 + 7
+
+
+def main():
+    from bisect import bisect_left
+    N = int(input())
+    P = [int(input()) for i in range(N)]
+
+    dp = [INF]*(N)
+    for i in range(N):
+        idx = bisect_left(dp, P[i])
+        dp[idx] = P[i]
+    print(bisect_left(dp, INF))
+
+
+if __name__ == '__main__':
+    main()
+

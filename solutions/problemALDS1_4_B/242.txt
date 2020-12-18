@@ -1,0 +1,5 @@
+n = int(input())
+F = set([int(i) for i in input().split()])
+q = int(input())
+G = set([int(i) for i in input().split()])
+print(len(F&G))

@@ -1,0 +1,9 @@
+N,W = map(int, input().split())
+val_i = [0]*(W+1)
+for i in range(1,N+1):
+    v,w = map(int, input().split())
+    copy = val_i[:] ##i-1번째줄의 val_i
+    for j in range(1,W+1):
+        if (w <= j):
+            val_i[j] = max((v + copy[j-w]), copy[j])
+print(val_i[-1])

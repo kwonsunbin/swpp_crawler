@@ -1,0 +1,25 @@
+import sys
+input = sys.stdin.readline
+
+def main():
+    N = int(input())
+
+    mark_to_num = {"S":0, "H":1, "C":2, "D":3}
+    num_to_mark = {0:"S", 1:"H", 2:"C", 3:"D"}
+
+    check = [[False for i in range(13)] for j in range(4)]
+    
+    for i in range(N):
+        mark, num = input().split()
+        check[mark_to_num[mark]][int(num)-1] = True
+    # print(check)
+    for i in range(4):
+        for j in range(13):
+            if not check[i][j]:
+                print(num_to_mark[i], j+1)
+
+
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,25 @@
+import sys, math
+def input():
+    return sys.stdin.readline()[:-1]
+from itertools import permutations, combinations
+from collections import defaultdict, Counter
+from math import factorial
+from bisect import bisect_left # bisect_left(list, value)
+#from fractions import gcd
+
+sys.setrecursionlimit(10**7)
+n = int(input())
+S = list(map(int, input().split()))
+q = int(input())
+T = list(map(int, input().split()))
+
+#S.sort()
+T.sort()
+setS = set(S)
+
+cnt = 0
+for t in T:
+    if t in setS:
+        cnt += 1
+print(cnt)
+

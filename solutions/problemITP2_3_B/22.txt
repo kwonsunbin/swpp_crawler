@@ -1,0 +1,14 @@
+n = int(input())
+A = list(map(int, input().split()))
+q = int(input())
+
+for i in range(q):
+    com, b, e = list(map(int, input().split()))
+
+    # min
+    if com == 0:
+        print(min(A[b:e]))
+
+    # max
+    else:
+        print(max(A[b:e]))

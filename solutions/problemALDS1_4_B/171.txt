@@ -1,0 +1,6 @@
+input()
+s = set(list(map(int,input().split())))
+input()
+t = set(list(map(int,input().split())))
+print(len(s.intersection(t)))
+

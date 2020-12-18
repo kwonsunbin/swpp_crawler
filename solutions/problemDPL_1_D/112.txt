@@ -1,0 +1,20 @@
+import bisect
+N = int(input())
+#A = list(map(int,input().split()))
+A = []
+for i in range(N):
+  temp = int(input())
+  A.append(temp)
+
+def LIS(N, A):
+    INF = float("inf")
+    #dp[i]: 最長増加部分列がi個の時の最後の値の最小値
+    dp = [INF]*(N+1)
+    dp[0] = -1 #iは1indexなので0の時は適当な値(-1)を入れている。
+    for x in A:
+        idx = bisect.bisect_left(dp, x) #x未満の数字を探して更新。
+        dp[idx] = x #min(x, dp[idx])
+        #print(dp)
+    return bisect.bisect_left(dp, INF) - 1 #INF未満となるIndexを返す。
+ans = LIS(N,A)
+print(ans)

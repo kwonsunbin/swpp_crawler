@@ -1,0 +1,29 @@
+_ = int(input())
+ns = [int(e) for e in input().split()]
+_ = int(input())
+qs = [int(e) for e in input().split()]
+
+
+def binary_search(q, ns):
+    left  = 0
+    right = len(ns)
+    while left < right:
+        mid = (left + right) // 2
+        if q == ns[mid]:
+            return True
+        elif ns[mid] < q:
+            left = mid + 1
+        else:
+            right = mid
+    return False
+
+
+def main(ns, qs):
+    total = 0
+    for q in qs:
+        if binary_search(q, ns):
+            total += 1
+    return total
+
+
+print(main(ns, qs))

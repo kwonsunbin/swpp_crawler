@@ -1,0 +1,20 @@
+# coding: utf-8
+# Your code here!
+import sys
+readline = sys.stdin.readline
+read = sys.stdin.read
+
+from bisect import bisect_left, bisect_right
+INF = 1<<60
+def LIS(a):
+    n = len(a)
+    dp = [INF]*n
+    for i in a:
+        """広義LISのとき、この行のみ bisect_right にする"""
+        dp[bisect_left(dp,i)] = i
+    return bisect_left(dp,INF)
+
+n,*a = map(int,read().split())
+print(LIS(a))
+
+

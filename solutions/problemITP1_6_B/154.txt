@@ -1,0 +1,10 @@
+
+list = [(o,n) for o in ['S','H','C','D'] for n in range(1,14)]
+n = int(input())
+for i in range(n) :
+    op,num = input().split()
+    list.remove((op,int(num)))
+
+for (o,n) in list :
+    print(o,n)
+

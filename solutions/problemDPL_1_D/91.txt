@@ -1,0 +1,21 @@
+import sys
+from bisect import bisect_left
+
+input = sys.stdin.readline
+
+def main():
+    N = int(input())
+    DP = []
+    for _ in range(N):
+        a = int(input())
+        idx = bisect_left(DP, a)
+        if idx > len(DP)-1:
+            DP.append(a)
+        else:
+            DP[idx] = a
+    ans = len(DP)
+    print(ans)
+
+if __name__ == "__main__":
+    main()
+

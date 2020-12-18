@@ -1,0 +1,10 @@
+n = int(input())
+S = set(map(int, input().split()))
+q = int(input())
+ans = 0
+T = list(map(int, input().split()))
+
+for t in T:
+    ans += t in S
+    
+print(ans)

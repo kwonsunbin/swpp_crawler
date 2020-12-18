@@ -1,0 +1,11 @@
+import bisect as bi
+
+N = int(input())
+c = [int(input()) for i in range(N)]
+inf = 10000000000
+lis = [inf for i in range(N)]
+
+for i in range(N):
+	lis[bi.bisect_left(lis, c[i])] = c[i]
+	
+print(bi.bisect_left(lis, inf))

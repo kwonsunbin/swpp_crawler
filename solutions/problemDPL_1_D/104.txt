@@ -1,0 +1,19 @@
+import bisect
+
+INF = 10 ** 10
+
+
+N = int(input())
+dp = [INF] * (N + 1)
+dp[0] = -1
+
+ans = 0
+for i in range(N):
+    a = int(input())
+    j = bisect.bisect_left(dp, a)
+    dp[j]=a
+    ans = max(j,ans)
+print(ans)
+
+
+

@@ -1,0 +1,12 @@
+n = int(input())
+a = list(map(int,input().split()))
+
+q = int(input())
+
+for i in range(q):
+    order,b,e = map(int,input().split())
+
+    if order == 0:
+        print(min(a[b:e]))
+    else:
+        print(max(a[b:e]))

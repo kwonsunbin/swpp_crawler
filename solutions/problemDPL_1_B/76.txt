@@ -1,0 +1,14 @@
+def main():
+    N, W = (int(i) for i in input().split())
+    VW = [[int(i) for i in input().split()] for j in range(N)]
+    dp = [0]*(W+1)
+    for i in range(N):
+        for j in range(W+1)[::-1]:
+            if j - VW[i][1] >= 0:
+                dp[j] = max(dp[j], dp[j - VW[i][1]] + VW[i][0])
+    print(dp[W])
+
+
+if __name__ == '__main__':
+    main()
+

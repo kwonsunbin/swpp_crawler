@@ -1,0 +1,15 @@
+import bisect
+
+N = int(input())
+A = [10**9 + 1]
+
+for i in range(N):
+  target = int(input())
+  target_idx = bisect.bisect_left(A, target)
+  if target_idx > len(A) - 1:
+    A.append(target)
+  else:
+    A[target_idx] = target
+
+print(len(A))
+

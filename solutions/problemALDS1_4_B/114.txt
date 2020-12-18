@@ -1,0 +1,17 @@
+n = int(input())
+s = list(map(int,input().split()))
+q = int(input())
+t = list(map(int,input().split()))
+count = 0
+for i in t:
+    left = 0;right = n
+    while left < right:
+        mid = (left+right)//2
+        if s[mid] == i:
+            count += 1
+            break
+        elif i < s[mid]:
+            right = mid
+        else:
+            left = mid + 1
+print(count)

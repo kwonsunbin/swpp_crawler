@@ -1,0 +1,30 @@
+all = [x for x in range(1,53)]
+
+N = int(input())
+i = 1
+
+while i <= N:
+	M, num = input().split()
+	num = int(num)
+	if M == 'S':
+		all.remove(num)
+	elif M == 'H':
+		all.remove(num+13)
+	elif M == 'C':
+		all.remove(num+26)
+	elif M == 'D':
+		all.remove(num+39)
+	
+	i += 1
+
+sN = 52 - N
+
+for j in range(sN):
+	if all[j] // 13 == 0 or (all[j] // 13 == 1 and all[j] % 13 == 0):
+		print("S {}".format(all[j]))
+	elif all[j] // 13 == 1 or (all[j] // 13 == 2 and all[j] % 13 == 0):
+		print("H {}".format(all[j]-13))
+	elif all[j] // 13 == 2 or (all[j] // 13 == 3 and all[j] % 13 == 0):
+		print("C {}".format(all[j]-26))
+	else:
+		print("D {}".format(all[j]-39))

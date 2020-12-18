@@ -1,0 +1,26 @@
+def binarySearch(list_a, key):
+    left = 0
+    right = len(list_a)
+    while left < right:
+        mid = (left + right) // 2
+        if list_a[mid] == key:
+            return mid
+            break
+        elif key < list_a[mid]:
+            right = mid
+        else:
+            left = mid+1
+    else:
+        return "NOT_FOUND"
+
+n = int(input())
+list_s = list((map(int, input().split())))
+q = int(input())
+list_t = list((map(int, input().split())))
+ans = 0
+for numbert in list_t:
+    if binarySearch(list_s,numbert) != "NOT_FOUND":
+        ans += 1
+    
+print(ans)
+

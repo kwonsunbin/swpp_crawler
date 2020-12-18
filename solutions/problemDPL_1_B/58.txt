@@ -1,0 +1,17 @@
+from functools import lru_cache
+
+
+@lru_cache(None)
+def dp(i, cur):
+    if cur > W:
+        return float('-inf')
+    elif i < 0:
+        return 0
+    else:
+        v, w = VW[i]
+        return max(dp(i - 1, cur), dp(i - 1, cur + w) + v)
+
+
+N, W = map(int, input().split())
+VW = [[int(x) for x in input().split()] for _ in range(N)]
+print(dp(N - 1, 0))

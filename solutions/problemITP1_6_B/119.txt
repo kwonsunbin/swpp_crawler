@@ -1,0 +1,31 @@
+S=[]
+H=[]
+C=[]
+D=[]
+n=int(input())
+for i in range(n):
+    a,b=map(str,input().split())
+    if a=='S':
+        S.append(b)
+    elif a=='H':
+        H.append(b)
+    elif a=='C':
+        C.append(b)
+    else:
+        D.append(b)
+S=list(map(int,S))
+H=list(map(int,H))
+C=list(map(int,C))
+D=list(map(int,D))
+for j in range(13):
+    if not j+1 in S:
+        print('S',j+1)
+for k in range(13):
+    if not k+1 in H:
+        print('H',k+1)
+for l in range(13):
+    if not l+1 in C:
+        print('C',l+1)
+for m in range(13):
+    if not m+1 in D:
+        print('D',m+1)

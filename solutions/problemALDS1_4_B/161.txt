@@ -1,0 +1,25 @@
+n = int(input())
+s = list(map(int,input().split()))
+q = int(input())
+t = list(map(int,input().split()))
+
+def check(s, n):
+    left = 0
+    right = len(s)
+    while True:
+        mid = int((left + right)/ 2)
+        if (s[mid] == n):
+            return(1)
+        elif (s[mid] > n):
+            right = mid
+        else:
+            left = mid + 1
+        if (left - right == 0):
+            return(0)
+
+ans = 0
+for i in range(len(t)):
+    ans += check(s, t[i])
+
+print(ans)
+

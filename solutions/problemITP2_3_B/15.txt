@@ -1,0 +1,10 @@
+n = int(input())
+A = [int(x) for x in input().split()]
+q = int(input())
+ 
+for i in range(q):
+    com, b, e = [int(x) for x in input().split()]
+    if com:
+        print(max(A[b:e]))
+    else:
+        print(min(A[b:e]))

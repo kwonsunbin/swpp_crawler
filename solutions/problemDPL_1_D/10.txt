@@ -1,0 +1,11 @@
+from bisect import bisect_left
+
+SENTINEL = 1e9 + 1
+n = int(input())
+dp = [SENTINEL] * n
+
+for _ in range(n):
+    a = int(input())
+    dp[bisect_left(dp, a)] = a
+
+print(bisect_left(dp, SENTINEL))

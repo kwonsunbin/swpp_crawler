@@ -1,0 +1,18 @@
+n = int(input())
+s = list(map(int, input().split()))
+q = int(input())
+t = list(map(int, input().split()))
+ans = 0
+for x in t:
+    ng = -1
+    ok = n
+    while ng + 1 < ok:
+        mid = (ng + ok) // 2
+        if s[mid] >= x:
+            ok = mid
+        else:
+            ng = mid
+    if ok < n and s[ok] == x:
+        ans += 1
+print(ans)
+

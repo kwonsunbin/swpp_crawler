@@ -1,0 +1,29 @@
+import sys
+
+
+def binary_search(arr, key):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = int((left + right) / 2)
+        if arr[mid] == key:
+            return mid
+        elif key < arr[mid]:
+            right = mid
+        else:
+            left = mid + 1
+    return -1
+
+
+input = sys.stdin.readline
+n = int(input())
+s_list = list(map(int, input().split()))
+q = int(input())
+t_list = list(map(int, input().split()))
+
+cnt = 0
+for t in t_list:
+    if binary_search(s_list, t) >= 0:
+        cnt += 1
+print(cnt)
+

@@ -1,0 +1,7 @@
+cards = ['{} {}'.format(s, r) for s in ('S', 'H', 'C', 'D') for r in range (1, 14)]
+a = int(input())
+for i in range(a):
+    b = input()
+    cards.remove(b)
+for j in cards:
+    print(j)

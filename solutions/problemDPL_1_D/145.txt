@@ -1,0 +1,13 @@
+from bisect import bisect_left
+import sys
+input = sys.stdin.readline
+def LIS():
+    N = int(input())
+    INF = 10000000000
+    dp = [INF] * (N+1)
+    for _ in range(N):
+        x = int(input())
+        dp[bisect_left(dp, x)] = x
+    print(bisect_left(dp, INF - 1))
+
+LIS()

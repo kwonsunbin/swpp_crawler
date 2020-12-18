@@ -1,0 +1,15 @@
+def main():
+    n = int(input())
+    l = list(map(int, input().split(" ")))
+    q = int(input())
+    for v in range(q):
+        i = list(map(int, input().split(" ")))
+        if i[0] == 0:
+            print(min(l[i[1]:i[2]]))
+        if i[0] == 1:
+            print(max(l[i[1]:i[2]]))
+
+
+    
+main()
+

@@ -1,0 +1,26 @@
+import sys
+sys.setrecursionlimit(10**6)
+def MAP(): return [int(s) for s in input().split()]
+
+if sys.platform =='darwin':
+	sys.stdin=open('Untitled.txt')
+input = sys.stdin.readline
+
+N, W = MAP()
+v = [0] * N
+w = [0] * N
+for i in range(N):
+	v[i], w[i] = MAP()
+
+dp = [[0 for _ in range(W+1)] for _ in range(N+1)]
+
+for i in range(0, N):
+	# print(i, v[i], w[i])
+	for sum_w in range(W+1):
+		if sum_w>=w[i]:
+			dp[i+1][sum_w] = max(dp[i][sum_w], dp[i][sum_w-w[i]]+v[i])
+		else:
+			dp[i+1][sum_w] = dp[i][sum_w]
+
+# print(dp)
+print(dp[N][W])

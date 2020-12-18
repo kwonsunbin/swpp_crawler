@@ -1,0 +1,13 @@
+
+n=int(input())
+s=list(map(int,input().split()))
+m=int(input())
+for i in range(m):
+    a,b,c=map(int,input().split())
+    if a==0:
+        d=min(s[b:c])
+    else:
+        d=max(s[b:c])
+    print(d)
+
+    

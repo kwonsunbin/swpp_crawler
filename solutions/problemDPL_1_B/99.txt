@@ -1,0 +1,15 @@
+N,W = [int(i) for i in input().split()]
+data = [[int(i) for i in input().split()] for j in range(N)]
+
+
+DP= [[0 for i in range(W+1)] for j in range(N+1)]
+
+for i in range(N):
+    for j in range(W+1):
+        if j >= data[i][1]:
+            DP[i+1][j] = (max(DP[i][j-data[i][1]]+data[i][0],DP[i][j]))
+        else:
+            DP[i+1][j] = DP[i][j]
+            
+print(DP[-1][-1])
+

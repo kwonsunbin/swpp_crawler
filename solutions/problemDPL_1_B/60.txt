@@ -1,0 +1,8 @@
+n,W=map(int,input().split())
+vw=[list(map(int,input().split())) for _ in [0]*n]
+memo=[0]*(W+1)
+for i in range(n):
+    v,w=vw[i]
+    for j,k in enumerate(memo[W-w::-1]):
+        memo[W-j]=max(v+k,memo[W-j])
+print(max(memo))

@@ -1,0 +1,42 @@
+n = int(input())
+s = list(map(int, input().split()))
+q = input()
+t = list(map(int, input().split()))
+
+center = int(n / 2)
+result = 0
+
+for ti in t:
+  if s[center] < ti:
+    left = int(n / 2)
+    right = n - 1
+  elif ti < s[center]:
+    left = 0
+    right = int(n / 2)
+  else:
+    result += 1
+    continue
+
+  while True:
+    tmp = int(left + int((right - left) / 2))
+    if 'current' in locals() and current == tmp:
+      if right == (n - 1):
+        current += 1
+      else:
+        current -= 1
+    else:
+      current = tmp
+
+    if s[current] < ti:
+      if current < left:
+        break
+      left = current
+    elif ti < s[current]:
+      if right < current:
+        break
+      right = current
+    elif ti == s[current]:
+      result += 1
+      break
+
+print(result)

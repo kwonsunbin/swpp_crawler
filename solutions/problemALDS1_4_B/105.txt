@@ -1,0 +1,23 @@
+def binary_search(key):
+    left = 0; right = n
+    cnt = 0
+    while left < right:
+        mid = (left + right) // 2
+        if key == S[mid]:
+            cnt += 1
+            break
+        elif key < S[mid]:
+            right = mid
+        else:
+            left = mid + 1
+    return cnt
+
+n = int(input())
+S = [int(e) for e in input().split()]
+q = int(input())
+T = [int(e) for e in input().split()]
+cnt = 0
+for key in T:
+    cnt += binary_search(key)
+print(cnt)
+

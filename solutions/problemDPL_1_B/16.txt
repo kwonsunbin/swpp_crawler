@@ -1,0 +1,29 @@
+from collections import defaultdict
+
+
+def solve(N, W, vs, ws):
+    dp = [[0] * (W + 1) for _ in range(N + 1)]
+    for i in range(N):
+        v, w = vs[i], ws[i]
+        for j in range(len(dp[0])):
+            dp[i + 1][j] = max(dp[i + 1][j], dp[i][j])
+            if j + w < len(dp[0]):
+                dp[i + 1][j + w] = max(dp[i + 1][j + w], dp[i][j] + v)
+    ans = 0
+    for line in dp:
+        ans = max(line)
+    return ans
+
+
+def main():
+    N, W = map(int, input().split())
+    vs, ws = [], []
+    for _ in range(N):
+        v, w = map(int, input().split())
+        vs.append(v)
+        ws.append(w)
+
+    print(solve(N, W, vs, ws))
+
+if __name__ == '__main__':
+    main()

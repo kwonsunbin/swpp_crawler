@@ -1,0 +1,8 @@
+N, W = map(int, input().split())
+item = [list(map(int, input().split())) for i in range(N)]
+dp = [0 for i in range(W+2)]
+for v in item:
+  for i in range(1, W+2):
+    if W + 1 - i + v[1] <= W:
+      dp[W + 1 - i + v[1]] = max(dp[W + 1 - i + v[1]] , dp[W + 1 - i] + v[0])
+print(dp[W])

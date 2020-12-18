@@ -1,0 +1,18 @@
+n = int(input())
+cards = [[ s+' '+str(n) for n in range(1,14)] for s in ['S','H','C','D']]
+#リストcardsの要素｢s n｣の形
+#sにはS,H,C,D、nには1~13の値を入れる
+for i in range(n):
+    a , num = input().split()
+    if a == 'S':
+        cards[0][int(num)-1] = 0
+    elif a == 'H':
+        cards[1][int(num)-1] = 0
+    elif a == 'C':
+        cards[2][int(num)-1] = 0
+    elif a == 'D':
+        cards[3][int(num)-1] = 0
+for s in cards:
+    for n in s:
+        if n != 0:
+            print(n)

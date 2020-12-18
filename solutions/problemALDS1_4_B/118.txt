@@ -1,0 +1,20 @@
+import sys
+input = lambda: sys.stdin.readline().rstrip() 
+import bisect as bs
+
+def resolve():
+    n = int(input())
+    S = list(map(int, input().split()))
+    q = int(input())
+    T = list(map(int, input().split()))
+
+    ans = 0
+    for t in T:
+        i = bs.bisect_left(S, t)
+        if i<len(S) and t==S[i]:
+            ans += 1
+
+    print(ans)
+
+if __name__ == '__main__':
+    resolve()

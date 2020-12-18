@@ -1,0 +1,14 @@
+from bisect import bisect_left
+N = int(input())
+As = [int(input()) for _ in range(N)]
+
+INF = 10**20
+dp = [As[0]]
+
+for i in range(1, N):
+    a = As[i]
+    if a>dp[-1]:
+        dp.append(a)
+    else:
+        dp[bisect_left(dp, a)] = a
+print(len(dp))

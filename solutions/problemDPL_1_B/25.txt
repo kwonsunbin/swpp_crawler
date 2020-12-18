@@ -1,0 +1,11 @@
+n, cap = map(int, input().split())
+dp = [0] * (cap + 1)
+
+for _ in range(n):
+    v, w = map(int, input().split())
+    for k in range(cap - w, -1, -1):
+        new_v = dp[k] + v
+        if dp[k + w] < new_v:
+            dp[k + w] = new_v
+
+print(max(dp))

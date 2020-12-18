@@ -1,0 +1,9 @@
+pictures = ['S','H','C','D']
+card_li = []
+for i in range(4):
+    for j in range(1,14):
+        card_li.append(pictures[i] + ' ' + str(j))
+n = int(input())
+for i in range(n): del card_li[card_li.index(input())]
+for i in card_li:
+    print(i)

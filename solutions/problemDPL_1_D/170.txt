@@ -1,0 +1,53 @@
+from sys import stdin, setrecursionlimit
+import bisect, collections, copy, heapq, itertools, math, string
+setrecursionlimit(10**8)
+
+def input():
+    return stdin.readline().strip()
+
+def main():
+
+
+
+    n = int(input())
+    a = [float("inf") for _ in range(n+1)]
+    a[0] = -1
+
+    for _ in range(n):
+        x = int(input())
+        ok = 0
+        ng = n+1
+
+        while ng-ok != 1:
+            md = (ok+ng)//2
+            if x > a[md]: ok = md
+            else: ng = md
+
+        ok += 1
+        a[ok] = min(a[ok], x)
+
+    for i, x in enumerate(a):
+        if x == float("inf"):
+            print(i-1)
+            break
+    else:
+        print(n)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return
+
+if __name__ == "__main__":
+    main()
+

@@ -1,0 +1,22 @@
+N,W=map(int,input().split())
+dp=[[0 for i in range(W+1)]for j in range(N+1)]
+goods=[]
+for i in range(N):
+    v,w=map(int,input().split())
+    goods.append([v,w])
+
+    
+for i in range(N):
+    v=goods[i][0]
+    w=goods[i][1]
+    for j in range(W+1):
+        dp[i+1][j]=max(dp[i][j],dp[i+1][j])
+        next_w=j+w
+        next_v=dp[i][j]+v
+        if(next_w<=W and next_v>dp[i+1][next_w]):
+            dp[i+1][next_w]=next_v
+
+ans=0
+for i in range(W+1):
+    ans=max(ans,dp[N][i])
+print(ans)

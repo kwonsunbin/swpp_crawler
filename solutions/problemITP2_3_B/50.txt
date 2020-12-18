@@ -1,0 +1,15 @@
+
+from sys import stdin
+
+n = int(stdin.readline())
+l = list(map(int,stdin.readline().split()))
+num = int(stdin.readline())
+for i in range(num):
+    inp = list(stdin.readline().split())
+    start = int(inp[1])
+    end = int(inp[2])
+    if inp[0] == '0':
+        print(min(l[start:end]))
+    else:
+        print(max(l[start:end]))
+

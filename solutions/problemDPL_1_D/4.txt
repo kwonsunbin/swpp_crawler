@@ -1,0 +1,17 @@
+import sys
+from bisect import bisect_left
+
+def solve():
+    A = map(int, sys.stdin)
+    n = next(A)
+    L = [next(A)]
+    for a_i in A:
+        if a_i > L[-1]:
+            L.append(a_i)
+        else:
+            j = bisect_left(L, a_i)
+            L[j] = a_i
+    print(len(L))
+
+solve()
+

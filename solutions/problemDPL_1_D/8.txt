@@ -1,0 +1,17 @@
+import sys
+from bisect import bisect_left
+
+N = int(input())
+dp = []
+append = dp.append
+result = -1
+
+for n in map(int, sys.stdin.readlines()):
+    i = bisect_left(dp, n)
+    if i > result:
+        append(n)
+        result += 1
+    else:
+        dp[i] = n
+
+print(result+1)

@@ -1,0 +1,23 @@
+
+def main():
+    inf = 1<<29
+    n,w = map(int,input().split())
+    A = []
+    for _ in range(n):
+        a,b = map(int,input().split())
+        A.append([a,b])
+    dp = [0]*(w+1)
+    for i in range(n):
+        a = A[i][0]
+        b = A[i][1]
+        for j in range(w,b-1,-1):
+            dp[j] = max(dp[j],dp[j-b]+a)
+    res = 0
+    for i in range(w+1):res = max(res,dp[i])
+    print(res)
+
+
+if __name__ == '__main__':
+    main()
+
+

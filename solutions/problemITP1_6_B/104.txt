@@ -1,0 +1,13 @@
+#coding:utf-8
+#1_6_B 2015.4.5
+suits = ['S','H','C','D']
+cards = {suit:[i for i in range(1,14)] for suit in suits}
+
+n = int(input())
+for i in range(n):
+    suit,rank = input().split()
+    cards[suit].remove(int(rank))
+
+for suit in suits:
+    for i in cards[suit]:
+        print(suit,i)

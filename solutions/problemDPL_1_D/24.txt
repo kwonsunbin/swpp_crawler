@@ -1,0 +1,15 @@
+def LIS(L):
+    from bisect import bisect
+    seq=[L[0]]
+    for i in L:
+        pos=bisect(seq,i)
+        if (seq[-1] < i):
+            seq.append(i)
+        elif(i not in seq):
+            seq[pos]=i
+    return len(seq)
+n = int(input())
+L = []
+for i in range(n):
+    L.append(int(input()))
+print(LIS(L))

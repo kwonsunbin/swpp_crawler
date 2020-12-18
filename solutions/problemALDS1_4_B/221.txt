@@ -1,0 +1,11 @@
+from bisect import bisect_left
+
+N = int(input())
+A = list(map(int, input().split()))
+Q = int(input())
+res = 0
+for t in map(int, input().split()):
+    idx = bisect_left(A, t)
+    if idx < N and A[idx] == t:
+        res += 1
+print(res)

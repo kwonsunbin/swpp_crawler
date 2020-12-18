@@ -1,0 +1,29 @@
+# coding: utf-8
+
+import sys
+import bisect
+
+
+def solve(N, a):
+    dp = [float("inf")] * N
+    for i in range(N):
+        ins_p = bisect.bisect_left(dp, a[i])
+        if dp[ins_p] != a[i]:
+            dp[ins_p] = a[i]
+    # sys.stderr.write(str(dp) + "\n")
+    for i in range(N):
+        if dp[i] == float("inf"):
+            return i
+    return N
+
+
+def main():
+    N = int(input())
+    a = [None] * N
+    for i in range(N):
+        a[i] = int(input())
+
+    print(solve(N, a))
+
+
+main()

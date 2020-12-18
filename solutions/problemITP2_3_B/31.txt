@@ -1,0 +1,12 @@
+n=int(input())
+a=list(map(int,input().split( )))
+q=int(input())
+for i in range(q):
+    com,b,e=map(int,input().split( ))
+    if com==0:
+        mn=min(a[b:e])
+        print(mn)
+    else:
+        mx=max(a[b:e])
+        print(mx)
+

@@ -1,0 +1,17 @@
+from bisect import bisect_right
+
+def LIS(A):
+    B = [INF for _ in range(len(A))]
+    B[0] = A[0]
+    for i in range(1,len(A)):
+        pt = bisect_right(B,A[i])
+        if B[pt-1] != A[i]:
+            B[pt] = A[i]
+    return bisect_right(B,INF-1)
+
+n = int(input())
+A = [int(input()) for _ in range(n)]
+INF = 10**9+2
+
+print(LIS(A))
+

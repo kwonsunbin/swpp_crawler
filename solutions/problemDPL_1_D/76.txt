@@ -1,0 +1,13 @@
+import sys
+import bisect
+
+n = int(input())
+dp = [float('inf')] * n
+
+for _ in range(n):
+    a = int(input())
+    point = bisect.bisect_left(dp, a)
+    dp[point] = a
+
+print(bisect.bisect_left(dp, float('inf')))
+

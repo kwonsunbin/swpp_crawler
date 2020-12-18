@@ -1,0 +1,21 @@
+
+
+
+
+while True:
+	N, x = map(int,input().split())
+	if N == 0 and x == 0:
+		break
+	
+	ctr = 0
+	
+	for i in range(1, N+1):
+		for j in range(i+1, N+1):
+			k = x - i -j
+			if k <= j:
+				break
+			elif k <= N and j < k:
+				ctr += 1
+				#print("{} {} {}".format(i, j, k))
+			
+	print(ctr)

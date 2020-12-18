@@ -1,0 +1,24 @@
+n = int(input())
+s = list(map(int, input().split()))
+q = int(input())
+t = list(map(int, input().split()))
+
+def search(s, x) -> bool:
+    l,r = -1,len(s)
+    if r == 0:
+        return False
+    while r-l > 1:
+        mid = (l+r) // 2
+        if s[mid] == x:
+            return True
+        elif s[mid] < x:
+            l = mid
+        else:
+            r = mid
+    return r < len(s) and s[r] == x
+
+cnt = 0
+for x in t:
+    cnt += search(s, x)
+
+print(cnt)

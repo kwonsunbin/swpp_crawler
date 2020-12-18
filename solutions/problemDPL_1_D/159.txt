@@ -1,0 +1,30 @@
+from sys import stdin
+
+def interval(l, e):
+    left = 0
+    right = len(l)
+    while left < right:
+        mid = (left + right) // 2
+        if l[mid] < e:
+            left = mid + 1
+        else:
+            right = mid
+    return left
+
+def LIS(n, a):
+    l = [a[0]]
+    for e in a[1:]:
+        if l[-1] < e:
+            l.append(e)
+        else:
+            l[interval(l, e)] = e
+    return len(l)
+
+
+def main():
+    n = int(input())
+    a = list(map(int, stdin.readlines()))
+    print(LIS(n, a))
+
+
+main()

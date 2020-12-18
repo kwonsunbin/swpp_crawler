@@ -1,0 +1,19 @@
+import bisect
+
+n=int(input())
+a = []
+INF = float('inf')
+for i in range(n):
+    aa = int(input())
+    a.append(aa)
+#dp[i][j] =a_0～a_iにおける長さjの部分増加列の最後の数のmin
+#dp[i][j] = dp[i-1][j-1] < a[i]ならmin(a[i],dp[i-1][j])
+#            そうでないならdp[i-1][j]
+
+dp = [INF for i in range(n)]
+dp[0] = a[0]
+for i in range(1,n):
+        p = bisect.bisect_left(dp, a[i])
+        dp[p] = min(a[i],dp[p])
+
+print(bisect.bisect_left(dp, INF))

@@ -1,0 +1,27 @@
+S=[i for i in range(1,14)]
+H=[i for i in range(1,14)]
+C=[i for i in range(1,14)]
+D=[i for i in range(1,14)]
+
+c=int(input())
+for i in range(0,c):
+    m,r=input().split()
+    r=int(r)
+    if m=="S":
+        S.remove(r)
+    elif m=="H":
+        H.remove(r)
+    elif m=="C":
+        C.remove(r)
+    elif m=="D":
+        D.remove(r)
+
+for i in S:
+    print("S",i)
+for i in H:
+    print("H",i)
+for i in C:
+    print("C",i)
+for i in D:
+    print("D",i)
+    

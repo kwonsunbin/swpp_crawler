@@ -1,0 +1,8 @@
+def solve():
+    N = int(input())
+    A = set(list(map(int, input().split())))
+    Q = int(input())
+    B = set(list(map(int, input().split())))
+    ans = len(A&B)  
+    return ans
+print(solve())

@@ -1,0 +1,5 @@
+n = input()
+a = set(input().split())
+q = input()
+b = set(input().split())
+print(len(a & b))

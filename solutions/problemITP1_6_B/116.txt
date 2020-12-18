@@ -1,0 +1,35 @@
+n = int(input())
+lst = []
+S_lst = []
+H_lst = []
+C_lst = []
+D_lst = []
+for i in range(n):
+    m, r = input().split()
+    r = int(r)
+    lsts = []
+    lsts.append(m)
+    lsts.append(r)
+    lst.append(lsts)
+for i in range(len(lst)):
+    if lst[i][0] == 'S':
+        S_lst.append(lst[i][1])
+    elif lst[i][0] == 'H':
+        H_lst.append(lst[i][1])
+    elif lst[i][0] == 'C':
+        C_lst.append(lst[i][1])
+    elif lst[i][0] == 'D':
+        D_lst.append(lst[i][1])
+
+for i in range(1,14):
+    if i not in S_lst:
+        print('S',i)
+for i in range(1,14):
+    if i not in H_lst:
+        print('H',i)
+for i in range(1,14):
+    if i not in C_lst:
+        print('C',i)
+for i in range(1,14):        
+    if i not in D_lst:
+        print('D',i)

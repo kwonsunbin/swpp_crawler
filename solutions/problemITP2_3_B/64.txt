@@ -1,0 +1,13 @@
+N = int(input())
+X = list(map(int,input().split()))
+q = int(input())
+for i in range(q):
+    a = input().split()
+    t = int(a[1])
+    s = int(a[2])
+    
+    if a[0] =="0":
+        print(min(X[t:s]))
+    elif a[0] == "1":
+        print(max(X[t:s]))
+

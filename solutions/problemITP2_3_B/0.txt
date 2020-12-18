@@ -1,0 +1,10 @@
+# AOJ ITP2_3_B: Min-Max Element
+# Python3 2018.6.24 bal4u
+
+n = int(input())
+a = list(map(int, input().split()))
+q = int(input())
+for i in range(q):
+	com, b, e = map(int, input().split())
+	if com == 0: print(min(a[b:e]))
+	else:        print(max(a[b:e]))

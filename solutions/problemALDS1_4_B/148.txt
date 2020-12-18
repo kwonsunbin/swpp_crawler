@@ -1,0 +1,18 @@
+def binarySearch(t):
+	left,right = 0,n
+	while right > left+1:
+		mid = (left+right) // 2
+		if S[mid] == t:
+			return True
+		elif S[mid] > t:
+			right = mid
+		else:
+			left = mid
+	return False
+
+n = int(input())
+S = [int(s) for s in input().split()]
+q = int(input())
+T = [int(s) for s in input().split()]
+
+print(sum([binarySearch(t) for t in T]))

@@ -1,0 +1,15 @@
+#! python3
+# finding_missing_cards.py
+
+cards = {mark: [] for mark in ['S', 'H', 'C', 'D']}
+
+n = int(input())
+for i in range(n):
+    mark, num = [x for x in input().split(' ')]
+    cards[mark].append(int(num))
+
+for k, v in cards.items():
+    for i in range(1, 14):
+        if i not in v:
+            print(k, i)
+

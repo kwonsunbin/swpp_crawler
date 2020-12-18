@@ -1,0 +1,26 @@
+n=int(input())
+l=[[0 for i in range(13)]for j in range(4)]
+for k in range(n):
+    s,r=map(str,input().split())
+    r=int(r)-1
+    if s=='S':
+        l[0][r]+=1
+    elif s=='H':
+        l[1][r]+=1
+    elif s=='C':
+        l[2][r]+=1
+    else:
+        l[3][r]+=1
+for S in range(4):
+    for R in range(13):
+        if l[S][R]==0:
+            if S==0:
+                print('S',R+1)
+            elif S==1:
+                print('H',R+1)
+            elif S==2:
+                print('C',R+1)
+            else:
+                print('D',R+1)
+        else:
+            pass

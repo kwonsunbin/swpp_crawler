@@ -1,0 +1,24 @@
+n=int(input())
+spade=set(range(1,14,1))
+heart=set(range(1,14,1))
+club=set(range(1,14,1))
+diamond=set(range(1,14,1))
+for a in range(n):
+    e,b=input().split()
+    if e=="S":
+        spade.remove(int(b))
+    if e=="H":
+        heart.remove(int(b))
+    if e=="C":
+        club.remove(int(b))
+    if e=="D":
+        diamond.remove(int(b))
+for i in spade:
+    print("S",i)
+for i in heart:
+    print("H",i)
+for i in club:
+    print("C", i)
+for i in diamond:
+    print("D",i)
+

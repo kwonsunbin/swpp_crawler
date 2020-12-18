@@ -1,0 +1,12 @@
+import bisect
+
+n=int(input())
+arr=[int(input()) for _ in range(n)]
+LIS=[arr[0]]
+for val in arr[1:]:
+    if val>LIS[-1]:
+        LIS.append(val)
+    else:
+        pos=bisect.bisect_left(LIS,val)
+        LIS[pos]=val
+print(len(LIS))

@@ -1,0 +1,15 @@
+def solve():
+    import bisect
+    N=int(input())
+    lists=[int(input()) for _ in range(N)]
+    inf = 10**15
+    dp=[inf  for i in range(N+1)]
+    for i in range(N):
+        index=bisect.bisect_left(dp,lists[i])
+        dp[index]=lists[i]
+    for i in range(N+1):
+        if dp[i]==inf:
+            print(i)
+            break
+if __name__=="__main__":
+    solve()

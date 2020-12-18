@@ -1,0 +1,21 @@
+import sys
+from bisect import bisect_left
+
+INF = 10 ** 10
+
+
+def main():
+    input = sys.stdin.buffer.readline
+    n = int(input())
+    a = [int(input()) for _ in range(n)]
+    dp = [INF] * n
+    for i in range(n):
+        k = bisect_left(dp, a[i])
+        if k < n:
+            dp[bisect_left(dp, a[i])] = a[i]
+    print(bisect_left(dp, INF))
+
+
+if __name__ == "__main__":
+    main()
+

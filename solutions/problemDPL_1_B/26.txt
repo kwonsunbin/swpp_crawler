@@ -1,0 +1,15 @@
+import sys
+input=sys.stdin.readline
+
+n,w=map(int,input().split())
+VW=[list(map(int,input().split())) for _ in range(n)]
+
+DP=[[0 for _ in range(w+1)] for _ in range(n+1)]
+for i in range(n):
+    for j in range(w+1):
+        item=VW[i]
+        DP[i+1][j]=max(DP[i][j],DP[i+1][j])
+        if 0<=j+item[1]<=w:
+            DP[i+1][j+item[1]]=max(DP[i+1][j+item[1]],DP[i][j]+item[0])
+
+print(DP[-1][-1])

@@ -1,0 +1,13 @@
+#68 不足しているカードの発見
+
+n = int(input())
+
+s = "SHCD"
+card = [[0] * 13 for i in range(4)]
+for i in range(n):
+    a, b = input().split()
+    card[s.find(a)][int(b) - 1] = 1     
+for i in range(4):
+    for j in range(13):
+        if card[i][j] == 0:
+            print(s[i], j + 1)

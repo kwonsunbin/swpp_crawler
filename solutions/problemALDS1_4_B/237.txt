@@ -1,0 +1,5 @@
+input()
+a = set(int(i) for i in input().split())
+input()
+b = set(int(i) for i in input().split())
+print(len(a & b))

@@ -1,0 +1,8 @@
+import itertools
+n = int(input())
+c = list(itertools.product(['S', 'H', 'C', 'D'], range(1,14)))
+for _ in range(n):
+    s, num = input().split()
+    c.remove((s, int(num)))
+for i in range(4*13 - n):
+    print(c[i][0], c[i][1])

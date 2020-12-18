@@ -1,0 +1,14 @@
+while True:
+    n,x=map(int,input().split())
+    if n==0 and x==0:
+        break
+    c=0
+    for i in range(1,n+1):
+        for j in range(1,n+1):
+            if i>=j:
+                pass
+            else:
+                z=x-(i+j)
+                if z>j and z<=n:
+                    c+=1
+    print(c)

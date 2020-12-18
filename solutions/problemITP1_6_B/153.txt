@@ -1,0 +1,27 @@
+cards = [[True for i in range(13)] for j in range(4)]
+
+n = int(input())
+for i in range(n):
+    mark, number = input().split()
+    number = int(number)
+    
+    if mark == 'S':
+        cards[0][number-1] = False
+    elif mark == 'H':
+        cards[1][number-1] = False
+    elif mark == 'C':
+        cards[2][number-1] = False
+    else:
+        cards[3][number-1] = False
+        
+for i in range(4):
+    for j in range(13):
+        if cards[i][j] == True:
+            if i == 0:
+                print("S ", j+1, sep="")
+            elif i == 1:
+                print("H ", j+1, sep="")
+            elif i == 2:
+                print("C ", j+1, sep="")
+            else:
+                print("D ", j+1, sep="")

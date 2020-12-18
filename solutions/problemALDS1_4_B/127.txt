@@ -1,0 +1,16 @@
+import bisect
+
+n = int(input())
+a = list(map(int, input().split()))
+q = int(input())
+t = list(map(int, input().split()))
+
+a.sort()
+
+ans = 0
+
+for e in t :
+    i = bisect.bisect_left(a, e)
+    if i == n : continue
+    if a[i] == e : ans += 1
+print(ans)

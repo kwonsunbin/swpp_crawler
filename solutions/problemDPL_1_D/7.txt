@@ -1,0 +1,14 @@
+from sys import stdin
+from bisect import bisect_left
+readline = stdin.readline
+
+
+dp = [-float('inf')]
+n = int(readline())
+a = (int(readline()) for _ in range(n))
+for ai in a:
+    if dp[-1] < ai:
+        dp.append(ai)
+    else:
+        dp[bisect_left(dp, ai)] = ai
+print(len(dp) - 1)

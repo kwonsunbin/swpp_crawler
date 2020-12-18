@@ -1,0 +1,6 @@
+if __name__ == '__main__':
+	n = int(input())
+	C = set([int(i) for i in input().split()])
+	q = int(input())
+	D = set([int(i) for i in input().split()])
+	print(len(C&D))

@@ -1,0 +1,12 @@
+n = int(input())
+A = list(map(int, input().split()))
+q = int(input())
+Q = list()
+for i in range(q):
+    tmp = list(map(int, input().split()))
+    Q.append(tmp)
+for query in Q:
+    if query[0] == 0:
+        print(min(A[query[1]:query[2]]))
+    else:
+        print(max(A[query[1]:query[2]]))

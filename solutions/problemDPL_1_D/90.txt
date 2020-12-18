@@ -1,0 +1,24 @@
+n = int(input())
+A = [int(input()) for _ in range(n)]
+INF = 10**18
+
+dp = [INF]*(n+1)
+
+dp[0] = -1
+
+import bisect
+
+for i in range(n):
+    r_idx = bisect.bisect_right(dp, A[i])
+    #print(r_idx)
+    if dp[r_idx-1]<A[i] and dp[r_idx]>A[i]:
+        dp[r_idx] = A[i]
+        
+ans = -1
+dp.append(INF)
+for i in range(n+2):
+    if dp[i]==INF:
+        ans = i-1 
+        break
+
+print(ans)

@@ -1,0 +1,11 @@
+import bisect
+n=int(input())
+l=[float('inf')]*n
+for i in range(n):
+    a=int(input())
+    p=bisect.bisect_left(l,a)
+    l[p]=a
+p=0
+while p<n and l[p]!=float('inf'):
+    p+=1
+print(p)

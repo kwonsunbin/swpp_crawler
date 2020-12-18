@@ -1,0 +1,22 @@
+# DPL 1 D
+
+import bisect
+
+def solve():
+    n = int(input())
+    a = [int(input()) for _ in range(n)]
+    dp = []
+    dp.append(a[0])
+    for i in range(1, n):
+        if a[i] > dp[-1]:
+            dp.append(a[i])
+        else:
+            j = bisect.bisect_left(dp, a[i])
+            dp[j] = a[i]
+
+    print(len(dp))
+
+
+if __name__ == "__main__":
+    solve()
+
